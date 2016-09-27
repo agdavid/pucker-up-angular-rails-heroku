@@ -6,7 +6,8 @@ gem 'responders'
 gem 'active_model_serializers'
 # Use for html templates in asset pipeline
 gem 'angular-rails-templates'
-
+# Use bower to load angular dependencies
+gem 'bower-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
