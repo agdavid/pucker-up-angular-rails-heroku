@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+# Use for better errors
+gem 'responders'
+# Use for auto-generating stringified JSON
+gem 'active_model_serializers'
+# Use for html templates in asset pipeline
+gem 'angular-rails-templates'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
