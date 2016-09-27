@@ -2,6 +2,7 @@
 
 Specs:
 - [x] Use Angular to build the app
+- [ ] Must include at least 5 pages
 - [ ] Must contain some sort of nested views
 - [ ] Must contain some sort of searching as well as filtering based on some criteria. Ex: All items in the "fruit" category, or all tasks past due
 - [ ] Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
@@ -15,3 +16,8 @@ Confirm
 - [ ] Your commit messages are meaningful
 - [ ] You made the changes in a commit that relate to the commit message
 - [ ] You don't include changes in a commit that aren't related to the commit message
+- [ ] You check each box in your spec.md and explain next to each one how you've met the requirement before you submit your project
+- [ ] Record at least a 30 min coding session.
+- [ ] Submit a video of how a user would interact with your working web app
+- [ ] Submit the URL to your github project
+- [ ] Write a blog post about the project and process
