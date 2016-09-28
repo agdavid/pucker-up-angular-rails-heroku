@@ -1,2 +1,0 @@
-class BreweryState < ApplicationRecord
-end
