@@ -12,7 +12,7 @@ class BreweriesController < ApplicationController
     if brewery.save
       render json: brewery
     else
-      render json: brewery 
+      render json: { errors: brewery.errors.full_messages }, status: :unprocessable_entity 
     end
   end
 
@@ -28,7 +28,7 @@ class BreweriesController < ApplicationController
     if brewery.update(brewery_params)
       render json: brewery 
     else
-      render json: brewery 
+      render json: { errors: brewery.errors.full_messages }, status: :unprocessable_entity 
     end
   end
 
