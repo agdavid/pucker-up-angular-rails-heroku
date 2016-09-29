@@ -11,6 +11,8 @@
                 templateUrl: 'home/home.html',
                 controller: 'HomeController as home'
               });
+          $urlRouterProvider
+              .otherwise('/');
     });
 
 }());
