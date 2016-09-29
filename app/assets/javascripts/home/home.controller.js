@@ -7,7 +7,6 @@
       var vm = this;
 
       //callable methods on the vm
-      vm.test = "Let's see if this shows!";
 
       //instantiated info  
       activate();
