@@ -3,6 +3,7 @@
   'use strict';
 
   function BreweryFactory($http) {
+      
       return {
           getBreweries: getBreweries,
           getBrewery: getBrewery,

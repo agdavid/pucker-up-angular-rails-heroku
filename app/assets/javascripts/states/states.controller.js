@@ -2,7 +2,7 @@
 
     'use strict';
 
-    function StatesController() {
+    function StatesController(StatesFactory) {
 
         var vm = this;
 
@@ -12,12 +12,18 @@
         //instantiate info
         activate();
 
+        //defined methods on the vm
         function activate() {
             getStates();
         };
 
         function getStates() {
+            return StatesFactory.getStates()
+                .then(setStates);
+        };
 
+        function setStates(data) {
+            return vm.states = data;
         };
 
     };
