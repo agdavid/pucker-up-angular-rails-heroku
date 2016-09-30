@@ -1,12 +1,19 @@
 <h1>{{ breweriesCtrl.test }}</h1>
 
 
-<input ng-model="breweriesCtrl.search" ng-change="breweriesCtrl.refilter()" placeholder="Search by name or state (e.g., Orpheus or Georgia)">
+<label for="search">Search: </label>
+<input ng-model="breweriesCtrl.searchTerm" ng-change="breweriesCtrl.refilter()" placeholder="Search by name or state (e.g., Orpheus or Georgia)">
+<br />
+
+<label for="filter">Filter by State: </label>
+<select ng-controller="StatesController as statesCtrl" ng-model="breweriesCtrl.searchState" ng-change="breweriesCtrl.refilter()" ng-options="state.name as state.name for state in statesCtrl.states">
+    <option value="">-Select State-</option>
+</select>
 <br />
 
 <a href="" ui-sref="create">Add a Brewery</a>  
 <br />
 
 <ul id="breweries-list" ng-click>
-    <li ng-repeat="brewery in breweriesCtrl.filteredList" ng-bind="brewery.name + ', ' + brewery.state_name"></li>
+    <li ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id" ng-bind="brewery.name + ', ' + brewery.state_name"></li>
 </ul>

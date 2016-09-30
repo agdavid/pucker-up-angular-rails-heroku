@@ -39,7 +39,11 @@
         };
 
         function refilter() {
-            return vm.filteredList = $filter('filter')(vm.breweries, vm.search);
+            if (vm.searchTerm && !vm.searchState) {
+                return vm.filteredList = $filter('filter')(vm.breweries, vm.searchTerm);
+            } else if (vm.searchState && !vm.searchTerm){
+                return vm.filteredList = $filter('filter')(vm.breweries, vm.searchState);
+            }    
         };
 
     };
