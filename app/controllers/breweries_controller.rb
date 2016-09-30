@@ -8,8 +8,9 @@ class BreweriesController < ApplicationController
 
   def create
     # post /breweries will go to breweries#create and instantiate a brewery
-    brewery = Brewery.new(brewery_params)
+    brewery = Brewery.new(brewery_params)  
     if brewery.save
+      brewery.state_name = brewery.set_state_name(brewery.state_id)
       render json: brewery
     else
       render json: { errors: brewery.errors.full_messages }, status: :unprocessable_entity 
@@ -40,7 +41,7 @@ class BreweriesController < ApplicationController
 
   private
     def brewery_params
-      params.require(:brewery).permit(:name, :state_id)
+      params.require(:brewery).permit(:name, :state_id, :state)
     end
 
 end
