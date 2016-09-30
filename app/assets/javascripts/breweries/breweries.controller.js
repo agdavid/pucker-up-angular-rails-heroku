@@ -2,13 +2,14 @@
 
     'use strict';
 
-    function BreweriesController(BreweryFactory) {
+    function BreweriesController(BreweryFactory, $filter) {
 
         var vm = this;
 
         //callable methods on the vm
         vm.test = "We have the breweries!";
         vm.createBrewery = createBrewery;
+        vm.refilter = refilter;
 
         //instantiated info
         activate();
@@ -21,16 +22,24 @@
         function getBreweries() {
             return BreweryFactory.getBreweries()
                        .then(setBreweries)
+                       .then(setFilteredList)
         };
 
         function createBrewery() {
-            debugger;
             return BreweryFactory.createBrewery(vm.newBrewery)
                        .then(getBreweries)
         };
 
         function setBreweries(data) {
             return vm.breweries = data;    
+        };
+
+        function setFilteredList(data) {
+            return vm.filteredList = data;    
+        };
+
+        function refilter() {
+            return vm.filteredList = $filter('filter')(vm.breweries, vm.search);
         };
 
     };
