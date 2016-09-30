@@ -1,0 +1,9 @@
+<h1>{{ breweriesCtrl.test }}</h1>
+
+<br />
+<a href="" ui-sref="create">Add a Brewery</a>  
+<br />
+
+<ul id="breweries-list" ng-click="hideBreweries()">
+    <li ng-repeat="brewery in breweriesCtrl.breweries track by brewery.id" ng-bind="brewery.name + ', ' + brewery.state_name"></li>
+</ul>

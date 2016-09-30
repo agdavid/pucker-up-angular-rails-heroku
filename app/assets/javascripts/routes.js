@@ -13,7 +13,12 @@
               })
               .state('breweries', {
                 url: '/breweries',
-                templateUrl: 'breweries/breweries.html',
+                templateUrl: 'breweries/index.html',
+                controller: 'BreweriesController as breweriesCtrl'
+              })
+              .state('create', {
+                url: '/breweries/create',
+                templateUrl: 'breweries/create.html',
                 controller: 'BreweriesController as breweriesCtrl'
               });
           $urlRouterProvider
