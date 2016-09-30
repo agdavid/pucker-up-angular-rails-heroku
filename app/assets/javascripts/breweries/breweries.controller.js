@@ -8,7 +8,8 @@
 
         //callable methods on the vm
         vm.test = "We have the breweries!";
-        
+        vm.createBrewery = createBrewery;
+
         //instantiated info
         activate();
 
@@ -19,7 +20,13 @@
 
         function getBreweries() {
             return BreweryFactory.getBreweries()
-                .then(setBreweries);
+                       .then(setBreweries)
+        };
+
+        function createBrewery() {
+            debugger;
+            return BreweryFactory.createBrewery(vm.newBrewery)
+                       .then(getBreweries)
         };
 
         function setBreweries(data) {

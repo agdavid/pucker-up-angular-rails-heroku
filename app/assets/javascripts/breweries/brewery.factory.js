@@ -22,7 +22,20 @@
 
       };
 
-      function createBrewery() {
+      function createBrewery(brewery) {
+          var req = {
+              method: 'POST',
+              url: '/breweries',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              data: {
+                  brewery: brewery
+              }
+          };
+
+          return $http(req)
+                     .catch(handleError)
 
       };
 

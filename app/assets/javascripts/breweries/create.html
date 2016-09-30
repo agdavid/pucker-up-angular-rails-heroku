@@ -1,14 +1,15 @@
 <h1>Let's Make a Brewery</h1>
 <form ng-submit="breweriesCtrl.createBrewery()">
     
-    <label form="name">Name: </label>
+    <label for="name">Name: </label>
     <textarea ng-model="breweriesCtrl.newBrewery.name"></textarea>
     <br />
     
-    <label form="state">State: </label>
+    <label for="state">State: </label>
     <div ng-controller="StatesController as statesCtrl">
-        <!-- TBD: How to have selection for state_id -->
-        <select ng-model="breweriesCtrl.newBrewery.state_id" ng-options="state.id as state.name for state in statesCtrl.states"></select>
+
+        <select ng-model="breweriesCtrl.newBrewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states"></select>
+
     </div>
     <br />
     
