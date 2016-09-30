@@ -11,6 +11,18 @@
                   templateUrl: 'home/home.html',
                   controller: 'HomeController as homeCtrl'
               })
+              .state('faq', {
+                url: '/faq',
+                templateUrl: 'faq/faq.html'
+              })
+              .state('faq.history', {
+                url:'/history',
+                templateUrl: 'faq/history.html'
+              })
+              .state('faq.science', {
+                url: '/science',
+                templateUrl: 'faq/science.html'
+              })
               .state('breweries', {
                 url: '/breweries',
                 templateUrl: 'breweries/index.html',
