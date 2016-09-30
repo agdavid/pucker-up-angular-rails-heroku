@@ -12,7 +12,9 @@
       }  
   
       function getBreweries() {
-
+          return $http.get('/breweries')
+              .then(handleSuccess)
+              .catch(handleError);  
       };
 
       function getBrewery() {
