@@ -1,1 +1,10 @@
 <h1>Let's Make a Brewery</h1>
+<form ng-submit="breweriesCtrl.createBrewery()">
+    <label form="name">Name: </label>
+    <textarea ng-model="breweriesCtrl.newBrewery.name"></textarea>
+    <br />
+    <label form="state">State: </label>
+    <!-- TBD: How to have selection for state_id -->
+    <br />
+    <input type="submit" value="Add Brewery">
+</form>
