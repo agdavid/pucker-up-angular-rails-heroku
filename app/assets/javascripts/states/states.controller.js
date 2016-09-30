@@ -2,7 +2,7 @@
 
     'use strict';
 
-    function StatesController(StatesFactory) {
+    function StatesController(StateFactory) {
 
         var vm = this;
 
@@ -18,7 +18,7 @@
         };
 
         function getStates() {
-            return StatesFactory.getStates()
+            return StateFactory.getStates()
                 .then(setStates);
         };
 

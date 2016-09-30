@@ -5,7 +5,7 @@
     function StateFactory($http) {
 
         return {
-            getStates: getStates;
+            getStates: getStates
         }
 
         function getStates() {

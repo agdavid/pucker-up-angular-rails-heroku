@@ -6,10 +6,12 @@
     <br />
     
     <label form="state">State: </label>
-    <div ng-controller="StatesController as statesCtrl" ng-bind="statesCtrl.test">
-    <!-- TBD: How to have selection for state_id -->
+    <div ng-controller="StatesController as statesCtrl">
+        <!-- TBD: How to have selection for state_id -->
+        <select ng-model="breweriesCtrl.newBrewery.state_id" ng-options="state.id as state.name for state in statesCtrl.states"></select>
     </div>
     <br />
     
     <input type="submit" value="Add Brewery">
+
 </form>
