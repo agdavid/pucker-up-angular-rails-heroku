@@ -11,10 +11,10 @@
                   templateUrl: 'home/home.html',
                   controller: 'HomeController as homeCtrl'
               })
-              .state('beers', {
-                url: '/beers',
-                templateUrl: 'beers/beers.html',
-                controller: 'BeersController as beersCtrl'
+              .state('breweries', {
+                url: '/breweries',
+                templateUrl: 'breweries/breweries.html',
+                controller: 'BreweriesController as breweriesCtrl'
               });
           $urlRouterProvider
               .otherwise('/');

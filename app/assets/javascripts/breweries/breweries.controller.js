@@ -2,12 +2,12 @@
 
     'use strict';
 
-    function BeersController() {
+    function BreweriesController() {
 
         var vm = this;
 
         //callable methods on the vm
-        vm.test = "We have the beers!";
+        vm.test = "We have the breweries!";
         
         //instantiated info
         activate();
@@ -21,6 +21,6 @@
 
     angular
         .module('app')
-        .controller('BeersController', BeersController);
+        .controller('BreweriesController', BreweriesController);
 
 }());
