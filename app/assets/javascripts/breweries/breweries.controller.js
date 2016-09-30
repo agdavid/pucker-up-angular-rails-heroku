@@ -23,7 +23,6 @@
         };
 
         function setBreweries(data) {
-            debugger;
             return vm.breweries = data;    
         };
 
