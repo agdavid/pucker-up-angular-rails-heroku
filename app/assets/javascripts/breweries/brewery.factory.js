@@ -34,6 +34,7 @@
       };
 
       function handleSuccess(response) {
+          debugger;
           //$http requests return a promise which needs to be parsed for its .data attribute
           //print to console to confirm visually
           console.log(response);

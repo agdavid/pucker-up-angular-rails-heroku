@@ -2,7 +2,7 @@
 
     'use strict';
 
-    function BreweriesController() {
+    function BreweriesController(BreweryFactory) {
 
         var vm = this;
 
@@ -14,8 +14,18 @@
 
         //defined methods on the vm
         function activate() {
+            getBreweries();
+        };
 
-        }
+        function getBreweries() {
+            return BreweryFactory.getBreweries()
+                .then(setBreweries);
+        };
+
+        function setBreweries(data) {
+            debugger;
+            return vm.breweries = data;    
+        };
 
     };
 
