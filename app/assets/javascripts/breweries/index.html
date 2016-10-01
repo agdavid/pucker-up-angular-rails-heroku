@@ -17,5 +17,7 @@
 <br />
 
 <ul id="breweries-list" ng-click>
-    <li ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id" ng-bind="brewery.name + ', ' + brewery.state_name"></li>
+    <li ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id">
+        <a href="" ui-sref="breweries.show({ id: brewery.id })">{{ brewery.name }}, {{ brewery.state_name }}</a>
+    </li>
 </ul>
