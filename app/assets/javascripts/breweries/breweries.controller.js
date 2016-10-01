@@ -3,13 +3,12 @@
     'use strict';
 
     function BreweriesController(BreweryFactory, $filter) {
-
         var vm = this;
 
         //callable methods on the vm
         vm.test = "We have the breweries!";
-        vm.createBrewery = createBrewery;
         vm.refilter = refilter;
+        vm.createBrewery = createBrewery;
 
         //instantiated info
         activate();
@@ -30,9 +29,15 @@
                        .then(getBreweries)
         };
 
+        // Note: function getBrewery(id) for breweries#show is in routes.js
+
         function setBreweries(data) {
             return vm.breweries = data;    
         };
+
+        function setBrewery(data) {
+            return vm.showBrewery = data;
+        }
 
         function setFilteredList(data) {
             return vm.filteredList = data;    

@@ -18,8 +18,10 @@
               .catch(handleError);  
       };
 
-      function getBrewery() {
-
+      function getBrewery(id) {
+          return $http.get('/breweries/' + id)
+              .then(handleSuccess)
+              .catch(handleError)
       };
 
       function createBrewery(brewery) {

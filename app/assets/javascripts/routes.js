@@ -6,11 +6,13 @@
       .module('app')
       .config(function($stateProvider, $urlRouterProvider){
           $stateProvider
+          //landing page
               .state('home', {
                   url: '/',
                   templateUrl: 'home/home.html',
                   controller: 'HomeController as homeCtrl'
               })
+          //static pages
               .state('faq', {
                   url: '/faq',
                   templateUrl: 'faq/home.html'
@@ -23,6 +25,7 @@
                   url: '/science',
                   templateUrl: 'faq/science.html'
               })
+          //breweries pages
               .state('breweries', {
                 url: '/breweries',
                 templateUrl: 'breweries/home.html'
@@ -38,9 +41,23 @@
                 controller: 'BreweriesController as breweriesCtrl'
               })
               .state('breweries.show', {
-                url: '/:id',
+                url: '/:breweryId',
                 templateUrl: 'breweries/show.html',
-                controller: 'BreweriesController as breweriesCtrl'
+                controller: function(BreweryFactory, $stateParams) {
+                                var vm = this;
+                                activate();
+                                function activate() {
+                                    getBrewery($stateParams.breweryId);
+                                };
+                                function getBrewery(id) {
+                                    return BreweryFactory.getBrewery(id)
+                                               .then(setBrewery);
+                                };
+                                function setBrewery(data) {
+                                    return vm.brewery = data;
+                                };
+                            },
+                controllerAs: 'breweryShowCtrl'
               });
           $urlRouterProvider
               .otherwise('/');
