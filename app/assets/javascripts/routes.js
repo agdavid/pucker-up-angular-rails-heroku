@@ -43,21 +43,7 @@
               .state('breweries.show', {
                 url: '/:breweryId',
                 templateUrl: 'breweries/show.html',
-                controller: function(BreweryFactory, $stateParams) {
-                                var vm = this;
-                                activate();
-                                function activate() {
-                                    getBrewery($stateParams.breweryId);
-                                };
-                                function getBrewery(id) {
-                                    return BreweryFactory.getBrewery(id)
-                                               .then(setBrewery);
-                                };
-                                function setBrewery(data) {
-                                    return vm.brewery = data;
-                                };
-                            },
-                controllerAs: 'breweryShowCtrl'
+                controller: 'BreweriesShowController as breweriesShowCtrl'
               });
           $urlRouterProvider
               .otherwise('/');
