@@ -29,7 +29,9 @@
                        .then(getBreweries)
         };
 
-        // Note: function getBrewery(id) for breweries#show is in routes.js
+        // Note: function getBrewery(id) for breweries.show 
+                //is in breweries.show.controller.js to avoid
+                //conflicting loading when a template has no $stateParams
 
         function setBreweries(data) {
             return vm.breweries = data;    

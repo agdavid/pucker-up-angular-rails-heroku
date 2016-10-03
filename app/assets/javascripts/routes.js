@@ -40,6 +40,11 @@
                 templateUrl: 'breweries/create.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
+              .state('breweries.edit', {
+                url: '/edit',
+                templateUrl: 'breweries/edit.html',
+                controller: 'BreweriesController as breweriesCtrl'
+              })
               .state('breweries.show', {
                 url: '/:breweryId',
                 templateUrl: 'breweries/show.html',

@@ -25,7 +25,7 @@
       };
 
       function createBrewery(brewery) {
-          var req = {
+              var req = {
               method: 'POST',
               url: '/breweries',
               headers: {
@@ -33,6 +33,10 @@
               },
               data: {
                   brewery: brewery
+                  // the 'brewery' data object {
+                  //    name: 'Evolution Craft Brewing',
+                  //    state_id: 20  
+                  //}
               }
           };
 
