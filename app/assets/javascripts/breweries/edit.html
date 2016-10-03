@@ -1,7 +1,12 @@
 <h1>Let's Update a Brewery</h1>
-<form ng-submit="breweriesShowCtrl.updateBrewery()">
+<form name="form" ng-submit="breweriesShowCtrl.updateBrewery()">
+    
     <label for="name">Name: </label>
-    <input ng-model="breweriesShowCtrl.brewery.name" required="required"></input>
+    <input type="text" name="name" ng-model="breweriesShowCtrl.brewery.name" minlength="3" required="required"></input>
+    <div ng-messages="form.name.$error" ng-show="form.name.$touched || form.$submitted">
+        <div ng-message="required">Please provide a name.</div>
+        <div ng-message="minlength">Name must be at least 3 letters long.</div>
+    </div>
     <br />
 
     <label for="address">Address: </label>
@@ -10,14 +15,20 @@
 
     <label for="state">State: </label>
     <span ng-controller="StatesController as statesCtrl">
-        <select ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id" required="required">
+        <select name="state" ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id" required="required">
               <option label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
         </select>
     </span>
+    <div ng-messages="form.state.$error" ng-show="form.state.$touched || form.$submitted">
+        <div ng-message="required">Please select a state from the dropdown options.</div>
+    </div>
     <br />
 
     <label for="url">Website: </label>
-    <textarea ng-model="breweriesShowCtrl.brewery.url" required="required"></textarea>
+    <textarea name="url" ng-model="breweriesShowCtrl.brewery.url" required="required"></textarea>
+    <div ng-messages="form.url.$error" ng-show="form.url.$touched || form.$submitted">
+        <div ng-message="required">Please provide a website.</div>
+    </div>
     <br />
 
     <!-- conditional - only shows if no lat/lng -->
