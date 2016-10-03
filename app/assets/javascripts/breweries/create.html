@@ -2,13 +2,13 @@
 <form ng-submit="breweriesCtrl.createBrewery()">
     
     <label for="name">Name: </label>
-    <textarea ng-model="breweriesCtrl.newBrewery.name"></textarea>
+    <textarea ng-model="breweriesCtrl.brewery.name"></textarea>
     <br />
     
     <label for="state">State: </label>
     <div ng-controller="StatesController as statesCtrl">
 
-        <select ng-model="breweriesCtrl.newBrewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states"></select>
+        <select ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states"></select>
 
     </div>
     <br />

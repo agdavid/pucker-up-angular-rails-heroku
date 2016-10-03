@@ -2,28 +2,37 @@
 
     'use strict';
 
-    function BreweriesShowController(BreweryFactory, $stateParams) {
-
-
+    function BreweriesShowController(BreweryFactory, $stateParams, $state) {
         var vm = this;
 
         //callable methods on the vm
         vm.getBrewery = getBrewery;
+        vm.updateBrewery = updateBrewery;
 
+        //instantiated info
         activate();
 
+        //defined methods on the vm        
         function activate() {
           getBrewery($stateParams.breweryId);
         };
 
-        //defined methods on the vm
         function getBrewery(id) {
             return BreweryFactory.getBrewery(id)
                        .then(setBrewery);
         };
 
+        function updateBrewery() {
+            return BreweryFactory.updateBrewery(vm.brewery)
+                       .then(showUpdatedBrewery);
+        };
+
         function setBrewery(data) {
             return vm.brewery = data;
+        };
+
+        function showUpdatedBrewery(data) {
+            $state.go('breweries.show', { breweryId: data.id });
         };
     };
 

@@ -41,12 +41,12 @@
                 controller: 'BreweriesController as breweriesCtrl'
               })
               .state('breweries.edit', {
-                url: '/edit',
+                url: '/edit/:breweryId',
                 templateUrl: 'breweries/edit.html',
-                controller: 'BreweriesController as breweriesCtrl'
+                controller: 'BreweriesShowController as breweriesShowCtrl'
               })
               .state('breweries.show', {
-                url: '/:breweryId',
+                url: '/show/:breweryId',
                 templateUrl: 'breweries/show.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               });

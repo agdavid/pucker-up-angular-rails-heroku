@@ -1,1 +1,16 @@
-<h1>Let's Edit a Brewery</h1>
+<h1>Let's Update a Brewery</h1>
+<form ng-submit="breweriesShowCtrl.updateBrewery()">
+    <label for="current-name">Name: </label>
+    <textarea ng-model="breweriesShowCtrl.brewery.name"></textarea>
+    <br />
+
+    <label for="current-state">State: </label>
+    <div ng-controller="StatesController as statesCtrl">
+        <select ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id">
+              <option name="current-state" label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
+        </select>
+    </div>
+
+    <input type="submit" name="Edit Brewery">
+  
+</form>

@@ -25,7 +25,7 @@
         };
 
         function createBrewery() {
-            return BreweryFactory.createBrewery(vm.newBrewery)
+            return BreweryFactory.createBrewery(vm.brewery)
                        .then(getBreweries)
         };
 
@@ -36,10 +36,6 @@
         function setBreweries(data) {
             return vm.breweries = data;    
         };
-
-        function setBrewery(data) {
-            return vm.showBrewery = data;
-        }
 
         function setFilteredList(data) {
             return vm.filteredList = data;    

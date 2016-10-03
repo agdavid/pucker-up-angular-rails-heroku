@@ -25,7 +25,7 @@
       };
 
       function createBrewery(brewery) {
-              var req = {
+          var req = {
               method: 'POST',
               url: '/breweries',
               headers: {
@@ -45,8 +45,21 @@
 
       };
 
-      function updateBrewery() {
+      function updateBrewery(brewery) {
+          var req = {
+              method: 'PATCH',
+              url: '/breweries/' + brewery.id,
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              data: {
+                brewery: brewery
+              }
+          };
 
+          return $http(req)
+                     .then(handleSuccess)
+                     .catch(handleError)
       };
 
       function deleteBrewery() {
