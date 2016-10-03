@@ -20,9 +20,10 @@
     <textarea ng-model="breweriesShowCtrl.brewery.url"></textarea>
     <br />
 
+    <!-- conditional - only shows if no lat/lng -->
     <p ng-if="breweriesShowCtrl.brewery.lat === '' || breweriesShowCtrl.brewery.lng === '' ">
     Help us map out every sour brewery in the US, with these easy steps:
-        <ol>
+        <ol ng-if="breweriesShowCtrl.brewery.lat === '' || breweriesShowCtrl.brewery.lng === '' ">
             <li>Search for your brewery on <a href="https://www.google.com/maps" target="_blank">GoogleMaps</a></li>
             <li>Right click the pin marker, then "What's here?"</li>
             <li>Take note of the two funky numbers that appear in the box at the bottom of the screen and input them below</li>
