@@ -49,8 +49,8 @@
             } else if (vm.searchState && !vm.searchTerm){
                 return vm.filteredList = $filter('filter')(vm.breweries, vm.searchState);
             } else {
-                vm.filteredList = $filter('filter')(vm.breweries, vm.searchState);
-                return vm.filteredList = $filter('filter')(vm.breweries, vm.searchTerm);
+                vm.filteredStateList = $filter('filter')(vm.breweries, vm.searchState);
+                return vm.filteredList = $filter('filter')(vm.filteredStateList, vm.searchTerm);
             }    
         };
 

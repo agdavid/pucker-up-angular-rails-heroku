@@ -15,6 +15,12 @@
 
 <a href="" ui-sref="create">Add a Brewery</a>  
 <br />
+<br />
+Showing {{ breweriesCtrl.filteredList.length }}  Breweries
+<span ng-if="breweriesCtrl.searchTerm"> for the search '{{ breweriesCtrl.searchTerm }}'</span>  
+<span ng-if="breweriesCtrl.searchState"> in the state of {{ breweriesCtrl.searchState }}</span>  
+<br />
+<hr>
 
 <ul id="breweries-list" ng-click>
     <li ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id">

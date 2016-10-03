@@ -7,7 +7,7 @@ Specs:
 - [x] Must contain some sort of 
   - [x]searching as well as 
   - [x] filtering based on some criteria. Ex: All items in the "fruit" category, or all tasks past due
-- [ ] Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
+- [x] Must contain at least one page that allows for dynamic updating of a single field of a resource. Ex: Allow changing of quantity in a shopping cart
 - [ ] Links should work correctly. Ex: Clicking on a product in a list, should take you to the show page for that product
 - [ ] Data should be validated in Angular before submission
 - [x] Must talk to the Rails backend using $http and Services
