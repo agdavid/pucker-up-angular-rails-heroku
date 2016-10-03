@@ -41,6 +41,7 @@
           };
 
           return $http(req)
+                     .then(handleSuccess)
                      .catch(handleError)
 
       };

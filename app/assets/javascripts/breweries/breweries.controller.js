@@ -2,7 +2,7 @@
 
     'use strict';
 
-    function BreweriesController(BreweryFactory, $filter) {
+    function BreweriesController(BreweryFactory, $filter, $state) {
         var vm = this;
 
         //callable methods on the vm
@@ -26,7 +26,7 @@
 
         function createBrewery() {
             return BreweryFactory.createBrewery(vm.brewery)
-                       .then(getBreweries)
+                       .then(showBrewery);
         };
 
         // Note: function getBrewery(id) for breweries.show 
@@ -50,6 +50,10 @@
                 vm.filteredStateList = $filter('filter')(vm.breweries, vm.searchState);
                 return vm.filteredList = $filter('filter')(vm.filteredStateList, vm.searchTerm);
             }    
+        };
+
+        function showBrewery(data) {
+            $state.go('breweries.show', { breweryId: data.id });
         };
 
     };

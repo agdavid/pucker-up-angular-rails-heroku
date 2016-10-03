@@ -24,14 +24,14 @@
 
         function updateBrewery() {
             return BreweryFactory.updateBrewery(vm.brewery)
-                       .then(showUpdatedBrewery);
+                       .then(showBrewery);
         };
 
         function setBrewery(data) {
             return vm.brewery = data;
         };
 
-        function showUpdatedBrewery(data) {
+        function showBrewery(data) {
             $state.go('breweries.show', { breweryId: data.id });
         };
     };
