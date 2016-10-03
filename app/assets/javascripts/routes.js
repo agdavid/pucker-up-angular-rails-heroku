@@ -28,7 +28,10 @@
           //breweries pages
               .state('breweries', {
                 url: '/breweries',
-                templateUrl: 'breweries/home.html'
+                templateUrl: 'breweries/home.html',
+                controller: function($state) {
+                    $state.go('breweries.index');    
+                }
               })
               .state('breweries.index', {
                 url: '/index',
