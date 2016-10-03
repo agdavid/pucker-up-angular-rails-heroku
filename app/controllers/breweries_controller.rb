@@ -33,7 +33,7 @@ class BreweriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     # post with method of delete /breweries/:id will go to breweries#destroy and delete a brewery
     brewery = Brewery.find(params[:id])
     brewery.destroy

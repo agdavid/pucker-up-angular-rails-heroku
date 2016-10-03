@@ -2,4 +2,8 @@
 {{ breweriesShowCtrl.brewery.name }} <br />
 {{ breweriesShowCtrl.brewery.state.name }} <br />
 
-<a href="" ui-sref="breweries.edit({ breweryId: breweriesShowCtrl.brewery.id })"></a>
+<br />
+
+<a href="" ui-sref="breweries.edit({ breweryId: breweriesShowCtrl.brewery.id })">Edit Brewery</a>
+<br />
+<a href="" ng-click="breweriesShowCtrl.destroyBrewery(breweriesShowCtrl.brewery.id )">Delete Brewery</a>

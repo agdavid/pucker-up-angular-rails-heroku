@@ -9,7 +9,7 @@
           getBrewery: getBrewery,
           createBrewery: createBrewery,
           updateBrewery: updateBrewery,
-          deleteBrewery: deleteBrewery
+          destroyBrewery: destroyBrewery
       }  
   
       function getBreweries() {
@@ -63,20 +63,18 @@
                      .catch(handleError)
       };
 
-      function deleteBrewery() {
-
+      function destroyBrewery(id) {
+          return $http.delete('/breweries/' + id)
+              .then(handleSuccess)
+              .catch(handleError)
       };
 
       function handleSuccess(response) {
-          //$http requests return a promise which needs to be parsed for its .data attribute
-          //print to console to confirm visually
           console.log(response);
-          //return to controller
           return response.data;  
       };
 
       function handleError(error) {
-          //print to console to confirm visually
           console.log(error);
       };
 

@@ -7,6 +7,7 @@
 
         //callable methods on the vm
         vm.test = "We have the breweries!";
+        vm.getBreweries = getBreweries;
         vm.refilter = refilter;
         vm.createBrewery = createBrewery;
 
@@ -29,9 +30,8 @@
                        .then(showBrewery);
         };
 
-        // Note: function getBrewery(id) for breweries.show 
-                //is in breweries.show.controller.js to avoid
-                //conflicting loading when a template has no $stateParams
+        // Note: function getBrewery(id) for breweries.show is in breweries.show.controller.js
+        // Note: function updateBrewery() is in breweries.show.controller.js
 
         function setBreweries(data) {
             return vm.breweries = data;    

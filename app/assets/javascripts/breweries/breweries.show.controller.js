@@ -8,6 +8,7 @@
         //callable methods on the vm
         vm.getBrewery = getBrewery;
         vm.updateBrewery = updateBrewery;
+        vm.destroyBrewery = destroyBrewery;
 
         //instantiated info
         activate();
@@ -27,12 +28,21 @@
                        .then(showBrewery);
         };
 
+        function destroyBrewery(id) {
+            return BreweryFactory.destroyBrewery(id)
+                       .then(showBreweries);
+        };
+
         function setBrewery(data) {
             return vm.brewery = data;
         };
 
         function showBrewery(data) {
             $state.go('breweries.show', { breweryId: data.id });
+        };
+
+        function showBreweries() {
+            $state.go('breweries.index');
         };
     };
 
