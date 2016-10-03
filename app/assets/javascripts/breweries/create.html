@@ -2,17 +2,42 @@
 <form ng-submit="breweriesCtrl.createBrewery()">
     
     <label for="name">Name: </label>
-    <textarea ng-model="breweriesCtrl.brewery.name"></textarea>
+    <input ng-model="breweriesCtrl.brewery.name"></input>
     <br />
+
+    <label for="address">Address: </label>
+    <textarea ng-model="breweriesCtrl.brewery.address"></textarea>
+    <br /> 
     
     <label for="state">State: </label>
-    <div ng-controller="StatesController as statesCtrl">
+    <span ng-controller="StatesController as statesCtrl">
 
         <select ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states"></select>
 
-    </div>
+    </span>
+    <br />
+
+    <label for="url">Website: </label>
+    <textarea ng-model="breweriesCtrl.brewery.url"></textarea>
+    <br />
+
+    <p>
+    Help us map out every sour brewery in the US, with these easy steps:
+        <ol>
+            <li>Search for your brewery on <a href="https://www.google.com/maps" target="_blank">GoogleMaps</a></li>
+            <li>Right click the pin marker, then "What's here?"</li>
+            <li>Take note of the two funky numbers that appear in the box at the bottom of the screen and input them below</li>
+        </ol>
+    </p>
+    
+    <label for="lat">Latitude: </label>
+    <input ng-model="breweriesCtrl.brewery.lat"></input>
     <br />
     
+    <label for="lat">Longitude: </label>
+    <input ng-model="breweriesCtrl.brewery.lng"></input>
+    <br />
+
     <input type="submit" value="Add Brewery">
 
 </form>
