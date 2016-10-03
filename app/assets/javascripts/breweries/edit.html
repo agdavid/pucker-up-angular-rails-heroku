@@ -1,23 +1,58 @@
 <h1>Let's Update a Brewery</h1>
 <form ng-submit="breweriesShowCtrl.updateBrewery()">
-    <label for="current-name">Name: </label>
-    <textarea ng-model="breweriesShowCtrl.brewery.name"></textarea>
+    <label for="name">Name: </label>
+    <input ng-model="breweriesShowCtrl.brewery.name"></input>
     <br />
 
-    <label for="current-state">State: </label>
-    <div ng-controller="StatesController as statesCtrl">
+    <label for="address">Address: </label>
+    <textarea ng-model="breweriesShowCtrl.brewery.address"></textarea>
+    <br /> 
+
+    <label for="state">State: </label>
+    <span ng-controller="StatesController as statesCtrl">
         <select ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id">
-              <option name="current-state" label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
+              <option label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
         </select>
-    </div>
+    </span>
     <br />
 
+    <label for="url">Website: </label>
+    <textarea ng-model="breweriesShowCtrl.brewery.url"></textarea>
+    <br />
+
+    <p ng-if="breweriesShowCtrl.brewery.lat === '' || breweriesShowCtrl.brewery.lng === '' ">
+    Help us map out every sour brewery in the US, with these easy steps:
+        <ol>
+            <li>Search for your brewery on <a href="https://www.google.com/maps" target="_blank">GoogleMaps</a></li>
+            <li>Right click the pin marker, then "What's here?"</li>
+            <li>Take note of the two funky numbers that appear in the box at the bottom of the screen and input them below</li>
+        </ol>
+    </p>
+
+    <label for="lat">Latitude: </label>
+    <input ng-model="breweriesShowCtrl.brewery.lat"></input>
+    <br />
+    
+    <label for="lat">Longitude: </label>
+    <input ng-model="breweriesShowCtrl.brewery.lng"></input>
+    <br />
+    <br />
+    
     <div>After updates the information will be:
         <br />
         Name: <span ng-bind="breweriesShowCtrl.brewery.name"></span>
+        <br />
+        Address: <span ng-bind="breweriesShowCtrl.brewery.address"></span> 
+        <br />
+        Website: <span ng-bind="breweriesShowCtrl.brewery.url"></span>
+        <br />
+        Latitude: <span ng-bind="breweriesShowCtrl.brewery.lat"></span>
+        <br />
+        Longitude: <span ng-bind="breweriesShowCtrl.brewery.lng"></span> 
     </div>
     <br />
-
+    <br />
+    
     <input type="submit" name="Edit Brewery">
   
 </form>

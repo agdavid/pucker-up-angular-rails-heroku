@@ -12,7 +12,9 @@
     <label for="state">State: </label>
     <span ng-controller="StatesController as statesCtrl">
 
-        <select ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states"></select>
+        <select ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states">
+            <option value="">-Select A State-</option>
+        </select>
 
     </span>
     <br />
