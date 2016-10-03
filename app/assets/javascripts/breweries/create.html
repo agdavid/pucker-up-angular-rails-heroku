@@ -2,7 +2,7 @@
 <form ng-submit="breweriesCtrl.createBrewery()">
     
     <label for="name">Name: </label>
-    <input ng-model="breweriesCtrl.brewery.name"></input>
+    <input ng-model="breweriesCtrl.brewery.name" required="required"></input>
     <br />
 
     <label for="address">Address: </label>
@@ -12,7 +12,7 @@
     <label for="state">State: </label>
     <span ng-controller="StatesController as statesCtrl">
 
-        <select ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states">
+        <select ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states" required="required">
             <option value="">-Select A State-</option>
         </select>
 
@@ -20,7 +20,7 @@
     <br />
 
     <label for="url">Website: </label>
-    <textarea ng-model="breweriesCtrl.brewery.url"></textarea>
+    <textarea ng-model="breweriesCtrl.brewery.url" required="required"></textarea>
     <br />
 
     <p>

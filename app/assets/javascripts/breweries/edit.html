@@ -1,7 +1,7 @@
 <h1>Let's Update a Brewery</h1>
 <form ng-submit="breweriesShowCtrl.updateBrewery()">
     <label for="name">Name: </label>
-    <input ng-model="breweriesShowCtrl.brewery.name"></input>
+    <input ng-model="breweriesShowCtrl.brewery.name" required="required"></input>
     <br />
 
     <label for="address">Address: </label>
@@ -10,14 +10,14 @@
 
     <label for="state">State: </label>
     <span ng-controller="StatesController as statesCtrl">
-        <select ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id">
+        <select ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id" required="required">
               <option label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
         </select>
     </span>
     <br />
 
     <label for="url">Website: </label>
-    <textarea ng-model="breweriesShowCtrl.brewery.url"></textarea>
+    <textarea ng-model="breweriesShowCtrl.brewery.url" required="required"></textarea>
     <br />
 
     <!-- conditional - only shows if no lat/lng -->
