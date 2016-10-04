@@ -26,7 +26,7 @@
               .state('home.register', {
                   url:'register',
                   templateUrl: 'auth/register.html',
-                  controller: 'AuthController as authCtrl'
+                  controller: 'AuthController as authCtrl',
                   onEnter: function($state, Auth) {
                       Auth.currentUser().then(function(){
                           $state.go('home.breweries');
@@ -39,11 +39,11 @@
                   templateUrl: 'faq/home.html'
               })
               .state('home.faq.history', {
-                  url:'history',
+                  url:'/history',
                   templateUrl: 'faq/history.html'
               })
               .state('home.faq.science', {
-                  url: 'science',
+                  url: '/science',
                   templateUrl: 'faq/science.html'
               })
           //breweries pages
@@ -52,22 +52,22 @@
                 templateUrl: 'breweries/home.html'
               })
               .state('home.breweries.index', {
-                url: 'index',
+                url: '/index',
                 templateUrl: 'breweries/index.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
               .state('home.breweries.create', {
-                url: 'create',
+                url: '/create',
                 templateUrl: 'breweries/create.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
               .state('home.breweries.edit', {
-                url: 'edit/:breweryId',
+                url: '/edit/:breweryId',
                 templateUrl: 'breweries/edit.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               })
               .state('home.breweries.show', {
-                url: 'show/:breweryId',
+                url: '/show/:breweryId',
                 templateUrl: 'breweries/show.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               });

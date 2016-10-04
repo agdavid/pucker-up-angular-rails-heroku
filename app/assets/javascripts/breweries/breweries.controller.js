@@ -53,7 +53,7 @@
         };
 
         function showBrewery(data) {
-            $state.go('breweries.show', { breweryId: data.id });
+            $state.go('home.breweries.show', { breweryId: data.id });
         };
 
     };

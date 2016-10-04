@@ -38,11 +38,11 @@
         };
 
         function showBrewery(data) {
-            $state.go('breweries.show', { breweryId: data.id });
+            $state.go('home.breweries.show', { breweryId: data.id });
         };
 
         function showBreweries() {
-            $state.go('breweries.index');
+            $state.go('home.breweries.index');
         };
     };
 
