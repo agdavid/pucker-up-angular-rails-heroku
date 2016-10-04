@@ -33,10 +33,15 @@
                       });
                   }    
               })
-          //static pages
+          //static page
               .state('home.about', {
                   url: 'about',
                   templateUrl: 'about/about.html'
+              })
+          //map page
+              .state('home.map', {
+                url: 'map',
+                templateUrl: 'map/map.html'
               })
           //breweries pages
               .state('home.breweries', {
