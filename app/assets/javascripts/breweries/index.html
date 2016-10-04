@@ -13,7 +13,7 @@
 </select>
 <br />
 
-<a href="" ui-sref="breweries.create">Add a Brewery</a>  
+<a href="" ui-sref="home.breweries.create">Add a Brewery</a>  
 <br />
 <br />
 Showing {{ breweriesCtrl.filteredList.length }}  Breweries
@@ -24,6 +24,6 @@ Showing {{ breweriesCtrl.filteredList.length }}  Breweries
 
 <ul id="breweries-list" ng-click>
     <li ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id">
-        <a href="" ui-sref="breweries.show({ breweryId: brewery.id })">{{ brewery.name }}, {{ brewery.state_name }}</a>
+        <a href="" ui-sref="home.breweries.show({ breweryId: brewery.id })">{{ brewery.name }}, {{ brewery.state_name }}</a>
     </li>
 </ul>

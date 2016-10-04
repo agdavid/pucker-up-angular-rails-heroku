@@ -13,39 +13,39 @@
                   controller: 'HomeController as homeCtrl'
               })
           //static pages
-              .state('faq', {
+              .state('home.faq', {
                   url: '/faq',
                   templateUrl: 'faq/home.html'
               })
-              .state('faq.history', {
+              .state('home.faq.history', {
                   url:'/history',
                   templateUrl: 'faq/history.html'
               })
-              .state('faq.science', {
+              .state('home.faq.science', {
                   url: '/science',
                   templateUrl: 'faq/science.html'
               })
           //breweries pages
-              .state('breweries', {
+              .state('home.breweries', {
                 url: '/breweries',
                 templateUrl: 'breweries/home.html'
               })
-              .state('breweries.index', {
+              .state('home.breweries.index', {
                 url: '/index',
                 templateUrl: 'breweries/index.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
-              .state('breweries.create', {
+              .state('home.breweries.create', {
                 url: '/create',
                 templateUrl: 'breweries/create.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
-              .state('breweries.edit', {
+              .state('home.breweries.edit', {
                 url: '/edit/:breweryId',
                 templateUrl: 'breweries/edit.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               })
-              .state('breweries.show', {
+              .state('home.breweries.show', {
                 url: '/show/:breweryId',
                 templateUrl: 'breweries/show.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
