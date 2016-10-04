@@ -1,6 +1,5 @@
 <h1>{{ breweriesCtrl.test }}</h1>
 
-
 <!-- General Search Function -->
 <label for="search">Search: </label>
 <input ng-model="breweriesCtrl.searchTerm" ng-change="breweriesCtrl.refilter()" placeholder="Search by name or state (e.g., Orpheus or Georgia)">
@@ -14,8 +13,10 @@
 <br />
 
 <a href="" ui-sref="home.breweries.create">Add a Brewery</a>  
+  
 <br />
 <br />
+
 Showing {{ breweriesCtrl.filteredList.length }}  Breweries
 <span ng-if="breweriesCtrl.searchTerm"> for the search '{{ breweriesCtrl.searchTerm }}'</span>  
 <span ng-if="breweriesCtrl.searchState"> in the state of {{ breweriesCtrl.searchState }}</span>  
