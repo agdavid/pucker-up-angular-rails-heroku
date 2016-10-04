@@ -2,7 +2,7 @@
 
   'use strict';
 
-  function HomeController(Auth) {
+  function HomeController($scope, Auth) {
 
       var vm = this;
 

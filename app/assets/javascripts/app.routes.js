@@ -12,6 +12,27 @@
                   templateUrl: 'home/home.html',
                   controller: 'HomeController as homeCtrl'
               })
+          //auth pages
+              .state('home.login', {
+                  url:'login',
+                  templateUrl: 'auth/login.html',
+                  controller: 'AuthController as authCtrl',
+                  onEnter: function($state, Auth) {
+                      Auth.currentUser().then(function(){
+                          $state.go('home.breweries');
+                      });
+                  }
+              })
+              .state('home.register', {
+                  url:'register',
+                  templateUrl: 'auth/register.html',
+                  controller: 'AuthController as authCtrl'
+                  onEnter: function($state, Auth) {
+                      Auth.currentUser().then(function(){
+                          $state.go('home.breweries');
+                      });
+                  }    
+              })
           //static pages
               .state('home.faq', {
                   url: 'faq',
