@@ -27,5 +27,16 @@ function initMap() {
         });
     };
 
+    function createCoordinates(data) {
+        for(var i=0; i < data.length; i++) {
+            var id = data[i].id;
+            var lat = parseFloat(data[i].lat);
+            var lng = parseFloat(data[i].lng);
+
+            var coordinate = new Coordinate(id, lat, lng);
+            coordinate.create_marker()
+        }
+    };
+
 
 };
