@@ -8,6 +8,8 @@ gem 'active_model_serializers'
 gem 'angular-rails-templates'
 # Use bower to load angular dependencies
 gem 'bower-rails'
+# Use for Rails-side authentication
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
