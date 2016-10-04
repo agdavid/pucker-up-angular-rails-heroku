@@ -12,8 +12,11 @@
 </select>
 <br />
 
-<a href="" ui-sref="home.breweries.create">Add a Brewery</a>  
-  
+
+<div ng-controller="HomeController as homeCtrl" ng-show="homeCtrl.signedIn()">
+    <a href="" ui-sref="home.breweries.create">Add a Brewery</a>
+</div>  
+
 <br />
 <br />
 
