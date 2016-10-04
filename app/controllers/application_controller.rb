@@ -3,6 +3,7 @@ require "application_responder"
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
 
+  # Use to prevent CSRF attacks by raising an exception
   protect_from_forgery with: :exception
 
   # Use when adding custom attributes to Devise user strong params
@@ -11,6 +12,9 @@ class ApplicationController < ActionController::Base
   after_filter :set_csrf_cookie
 
   respond_to :json
+
+  # Use for authorization
+  include Pundit
 
   def set_csrf_cookie
       cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
