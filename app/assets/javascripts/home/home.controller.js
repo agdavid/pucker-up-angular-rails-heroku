@@ -9,6 +9,7 @@
       //callable methods on the vm
       vm.signedIn = Auth.isAuthenticated;
       vm.logout = Auth.logout;
+      vm.getCurrentUser = getCurrentUser;
 
       //instantiated info  
       activate();

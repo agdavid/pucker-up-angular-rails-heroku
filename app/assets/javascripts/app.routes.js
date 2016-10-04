@@ -34,40 +34,28 @@
                   }    
               })
           //static pages
-              .state('home.faq', {
-                  url: 'faq',
-                  templateUrl: 'faq/home.html'
-              })
-              .state('home.faq.history', {
-                  url:'/history',
-                  templateUrl: 'faq/history.html'
-              })
-              .state('home.faq.science', {
-                  url: '/science',
-                  templateUrl: 'faq/science.html'
+              .state('home.about', {
+                  url: 'about',
+                  templateUrl: 'about/about.html'
               })
           //breweries pages
               .state('home.breweries', {
                 url: 'breweries',
-                templateUrl: 'breweries/home.html'
-              })
-              .state('home.breweries.index', {
-                url: '/index',
                 templateUrl: 'breweries/index.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
-              .state('home.breweries.create', {
-                url: '/create',
+              .state('home.create', {
+                url: 'breweries/create',
                 templateUrl: 'breweries/create.html',
                 controller: 'BreweriesController as breweriesCtrl'
               })
-              .state('home.breweries.edit', {
-                url: '/edit/:breweryId',
+              .state('home.edit', {
+                url: 'breweries/edit/:breweryId',
                 templateUrl: 'breweries/edit.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               })
-              .state('home.breweries.show', {
-                url: '/show/:breweryId',
+              .state('home.show', {
+                url: 'breweries/show/:breweryId',
                 templateUrl: 'breweries/show.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
               });

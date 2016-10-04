@@ -6,6 +6,7 @@ State: {{ breweriesShowCtrl.brewery.state.name }} <br />
 
 <br />
 
-<a href="" ui-sref="home.breweries.edit({ breweryId: breweriesShowCtrl.brewery.id })">Edit Brewery</a>
+
+<a ng-controller="HomeController as homeCtrl" ng-show="homeCtrl.signedIn() && homeCtrl.user.admin" href="" ui-sref="home.edit({ breweryId: breweriesShowCtrl.brewery.id })">Edit Brewery</a>
 <br />
-<a href="" ng-click="breweriesShowCtrl.destroyBrewery(breweriesShowCtrl.brewery.id )">Delete Brewery</a>
+<a ng-controller="HomeController as homeCtrl" ng-show="homeCtrl.signedIn() && homeCtrl.user.admin" href="" ng-click="breweriesShowCtrl.destroyBrewery(breweriesShowCtrl.brewery.id )">Delete Brewery</a>
