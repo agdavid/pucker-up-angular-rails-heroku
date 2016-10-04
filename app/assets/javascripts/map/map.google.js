@@ -29,19 +29,19 @@ function initMap() {
 
     //callback to iterate over AJAX response with JS array of Brewery objects
     function createCoordinates(data) {
-        debugger;
         for(var i=0; i < data.length; i++) {
             var id = data[i].id;
+            var name = data[i].name;
+            var url = data[i].url
             var lat = parseFloat(data[i].lat);
             var lng = parseFloat(data[i].lng);
 
-            var coordinate = new Coordinate(id, lat, lng);
+            var coordinate = new Coordinate(id, name, url, lat, lng);
             coordinate.create_marker()
         }
     };
 
     //get AJAX request to Rails API backend breweries#index
     $.get("/breweries.json", createCoordinates);
-
 
 };
