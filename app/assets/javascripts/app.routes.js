@@ -40,8 +40,8 @@
               })
           //map page
               .state('home.map', {
-                url: 'map',
-                templateUrl: 'map/map.html'
+                  url: 'map',
+                  templateUrl: 'map/map.html'
               })
           //breweries pages
               .state('home.breweries', {
