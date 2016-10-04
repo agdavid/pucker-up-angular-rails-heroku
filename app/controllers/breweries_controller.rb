@@ -1,4 +1,6 @@
 class BreweriesController < ApplicationController
+  # Devise check for user authentication
+  before_filter :authenticate_user!, only: [:create, :update, :destroy]
 
   def index
     # get /breweries will go to breweries#index and return all breweries
