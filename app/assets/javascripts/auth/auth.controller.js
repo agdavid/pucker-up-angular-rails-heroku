@@ -10,12 +10,12 @@
 
         //defined methods on the vm
         function login() {
-            Auth.login($scope.user)
+            Auth.login(vm.user)
                 .then(goToBreweries);
         };
 
         function register() {
-            Auth.register($scope.user)
+            Auth.register(vm.user)
                 .then(goToBreweries);
         };
 
