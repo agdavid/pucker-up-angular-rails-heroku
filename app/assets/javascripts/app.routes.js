@@ -41,7 +41,8 @@
           //map page
               .state('home.map', {
                   url: 'map',
-                  templateUrl: 'map/map.html'
+                  templateUrl: 'map/map.html',
+                  controller: 'MapController as mapCtrl'
               })
           //breweries pages
               .state('home.breweries', {

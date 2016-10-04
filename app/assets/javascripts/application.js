@@ -17,5 +17,4 @@
 //= require angular-ui-router
 //= require angular-rails-templates
 //= require angular-messages
-//= require map/map.google
 //= require_tree .

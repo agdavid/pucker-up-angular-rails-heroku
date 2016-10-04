@@ -5,12 +5,13 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
 
     <!-- GoogleMaps Javascript API call -->
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdBbWMrt8ROdoblkc2WumUDvx_74VKKn0&callback=initMap">
     </script>
+        
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
