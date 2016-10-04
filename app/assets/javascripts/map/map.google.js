@@ -27,7 +27,9 @@ function initMap() {
         });
     };
 
+    //callback to iterate over AJAX response with JS array of Brewery objects
     function createCoordinates(data) {
+        debugger;
         for(var i=0; i < data.length; i++) {
             var id = data[i].id;
             var lat = parseFloat(data[i].lat);
@@ -37,6 +39,9 @@ function initMap() {
             coordinate.create_marker()
         }
     };
+
+    //get AJAX request to Rails API backend breweries#index
+    $.get("/breweries.json", createCoordinates);
 
 
 };
