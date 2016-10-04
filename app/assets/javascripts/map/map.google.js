@@ -18,5 +18,14 @@ function initMap() {
         this.lng = lng
     };
 
+    //JS method on the prototype
+    Coordinate.prototype.create_marker = function() {
+        var latLng = new google.maps.LatLng(this.lat, this.lng);
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+        });
+    };
+
 
 };
