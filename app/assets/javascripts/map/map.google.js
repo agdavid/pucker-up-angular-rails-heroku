@@ -20,19 +20,36 @@ function initMap() {
 
     //JS method on the prototype
     Coordinate.prototype.create_marker = function() {
-        var latLng = new google.maps.LatLng(this.lat, this.lng);
-        //Create new marker for each Brewery and place on map
-        var marker = new google.maps.Marker({
-            position: latLng,
-            url: this.url,
-            map: map
-        });
+        //Give each Brewery a marker and infowindow if it has coordinates
+        if (this.lat && this.lng) {
+            //Create new marker for each Brewery and place on map
+            var latLng = new google.maps.LatLng(this.lat, this.lng);
+            
+            var marker = new google.maps.Marker({
+                position: latLng,
+                url: this.url,
+                title: this.name,
+                map: map
+            });
+        
+            var infowindow = new google.maps.InfoWindow({
+                content: this.name
+            });
 
-        //Make each marker a clickable link, opening in a new window
-        google.maps.event.addListener(marker, 'click', goToUrl);
-        function goToUrl() {
-            window.open(this.url);
-        };
+            //and eventListeners
+            marker.addListener('mouseover', openInfoWindow);
+            function openInfoWindow() {
+                infowindow.open(map, marker);
+            };
+            marker.addListener('mouseout', closeInfoWindow);
+            function closeInfoWindow() {
+                infowindow.close();
+            };
+            marker.addListener('click', goToUrl);
+            function goToUrl() {
+                window.open(this.url);
+            };
+        }
     };
 
     //callback to iterate over AJAX response with JS array of Brewery objects
