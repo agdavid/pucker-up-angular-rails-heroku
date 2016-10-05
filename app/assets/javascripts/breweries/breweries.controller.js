@@ -6,7 +6,6 @@
         var vm = this;
 
         //callable methods on the vm
-        vm.test = "We have the breweries!";
         vm.getBreweries = getBreweries;
         vm.refilter = refilter;
         vm.createBrewery = createBrewery;
