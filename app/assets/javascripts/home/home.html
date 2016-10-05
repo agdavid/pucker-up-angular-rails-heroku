@@ -31,9 +31,30 @@
           </div><!-- /.container-fluid -->
     </nav>
     
-    <div id="main-container" class="container-fluid">
+    <div id="main-container" class="container">
         <ui-view id="main-ui-view">
           <!-- all app views nested from 'home' state -->
+            <div id="definition">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1><i>Defn.</i> PuckerUp</h1>
+                    <h3>noun | puck·er up | \ˈpə-kər əp\</h3>
+                    <br />
+                    <p>The ultimate list of sour beer breweries in the USA. Made for beer lovers, by beer lovers.</p>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-6">
+                  <p>Find your next muse in our user-sourced BreweryList:</p>
+                  <a href="" ui-sref="home.breweries"><button type="button" class="btn btn.secondary">BreweryList</button></a>
+                </div>
+                <div class="col-md-6">
+                  <p>Brew-through the USA on a roadtrip using our BreweryMap:</p>
+                  <a href="" ui-sref="home.map"><button type="button" class="btn btn.secondary">BreweryMap</button></a>
+                </div>
+              </div>
+            </div> <!-- /#definition -->
         </ui-view>        
     </div>  
 
@@ -42,7 +63,7 @@
 <div class="push"></div>
 
 <footer class="footer">
-  <div class="container-fluid">
+  <div class="container">
       <div class="row">
           Footer
       </div>
