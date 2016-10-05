@@ -12,13 +12,11 @@
                         <div ng-message="minlength">Name must be at least 3 letters long.</div>
                     </div>
                 </div>
-                <br />
 
                 <div class="form-group">
                     <label for="address">Address: </label>
                     <textarea class="form-control" ng-model="breweriesCtrl.brewery.address"></textarea>
                 </div>
-                <br />
                 
                 <div class="form-group" ng-class="{ 'has-error' : form.state.$invalid && !form.state.$pristine }">
                     <label for="state">State: </label>    
@@ -33,7 +31,6 @@
                             <div ng-message="required">Please select a state from the dropdown options.</div>
                         </div>
                 </div>
-                <br />
 
                 <div class="form-group" ng-class="{ 'has-error' : form.url.$invalid && !form.url.$pristine }">
                         <label for="url">Website: </label>
@@ -42,8 +39,6 @@
                             <div ng-message="required">Please provide a website.</div>
                         </div>
                 </div>
-                <br />
-
 
                 <p>Help us map out every sour beer brewery in the US, with these easy steps:
                     <ol>
@@ -61,7 +56,6 @@
                     <label for="lat">Longitude: </label>
                     <input class="form-control" ng-model="breweriesCtrl.brewery.lng"></input>
                 </div>
-                <br />
 
                 <input class="btn btn-secondary btn-lg" type="submit" value="Add Brewery">
 

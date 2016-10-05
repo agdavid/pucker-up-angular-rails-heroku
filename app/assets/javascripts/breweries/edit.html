@@ -1,70 +1,81 @@
-<h1>Let's Update a Brewery</h1>
-<form name="form" ng-submit="breweriesShowCtrl.updateBrewery()">
+<div class="row form">
+    <div class="col-md-10 col-md-offset-1">
+        <h1>Let's Update a Brewery</h1>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form name="form" ng-submit="breweriesShowCtrl.updateBrewery()">
     
-    <label for="name">Name: </label>
-    <input type="text" name="name" ng-model="breweriesShowCtrl.brewery.name" minlength="3" required="required"></input>
-    <div ng-messages="form.name.$error" ng-show="form.name.$touched || form.$submitted">
-        <div ng-message="required">Please provide a name.</div>
-        <div ng-message="minlength">Name must be at least 3 letters long.</div>
+                    <div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.address.$pristine }">
+                        <label for="name">Name: </label>
+                        <input class="form-control" type="text" name="name" ng-model="breweriesShowCtrl.brewery.name" minlength="3" required="required"></input>
+                        <div ng-messages="form.name.$error" ng-show="form.name.$touched || form.$submitted">
+                            <div ng-message="required">Please provide a name.</div>
+                            <div ng-message="minlength">Name must be at least 3 letters long.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address: </label>    
+                        <textarea class="form-control" ng-model="breweriesShowCtrl.brewery.address"></textarea>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : form.state.$invalid && !form.state.$pristine }">
+                        <label for="state">State: </label>
+                        <span ng-controller="StatesController as statesCtrl">
+                            <select class="form-control" name="state" ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id" required="required">
+                                  <option label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
+                            </select>
+                        </span>
+                        <div ng-messages="form.state.$error" ng-show="form.state.$touched || form.$submitted">
+                            <div ng-message="required">Please select a state from the dropdown options.</div>
+                        </div>    
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : form.url.$invalid && !form.url.$pristine }">
+                        <label for="url">Website: </label>
+                        <textarea class="form-control" name="url" ng-model="breweriesShowCtrl.brewery.url" required="required"></textarea>
+                        <div ng-messages="form.url.$error" ng-show="form.url.$touched || form.$submitted">
+                            <div ng-message="required">Please provide a website.</div>
+                        </div>
+                    </div>
+
+                    <p>Help us map out every sour brewery in the US, with these easy steps:
+                        <ol>
+                            <li>Search for your brewery on <a href="https://www.google.com/maps" target="_blank">GoogleMaps</a></li>
+                            <li>Right click the pin marker, then "What's here?"</li>
+                            <li>Take note of the two funky numbers that appear in the box at the bottom of the screen and input them below</li>
+                        </ol>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="lat">Latitude: </label>
+                        <input class="form-control" ng-model="breweriesShowCtrl.brewery.lat"></input>
+                        <br />
+                        
+                        <label for="lat">Longitude: </label>
+                        <input class="form-control" ng-model="breweriesShowCtrl.brewery.lng"></input>
+                        <br />        
+                    </div>
+                    
+                    <div>After updates the information will be:
+                        <br />
+                        Name: <span ng-bind="breweriesShowCtrl.brewery.name"></span>
+                        <br />
+                        Address: <span ng-bind="breweriesShowCtrl.brewery.address"></span> 
+                        <br />
+                        Website: <span ng-bind="breweriesShowCtrl.brewery.url"></span>
+                        <br />
+                        Latitude: <span ng-bind="breweriesShowCtrl.brewery.lat"></span>
+                        <br />
+                        Longitude: <span ng-bind="breweriesShowCtrl.brewery.lng"></span> 
+                    </div>
+                    <br />
+                    <br />
+                    
+                    <input class="btn btn-secondary btn-lg" type="submit" value="Edit Brewery">
+                </form>
+            </div>
+        </div>        
     </div>
-    <br />
+</div>
 
-    <label for="address">Address: </label>
-    <textarea ng-model="breweriesShowCtrl.brewery.address"></textarea>
-    <br /> 
-
-    <label for="state">State: </label>
-    <span ng-controller="StatesController as statesCtrl">
-        <select name="state" ng-options="state.id*1 as state.name for state in statesCtrl.states" ng-model="breweriesShowCtrl.brewery.state_id" required="required">
-              <option label="{{ breweriesShowCtrl.brewery.state.name }}" ng-bind="breweriesShowCtrl.brewery.state.id"></option>
-        </select>
-    </span>
-    <div ng-messages="form.state.$error" ng-show="form.state.$touched || form.$submitted">
-        <div ng-message="required">Please select a state from the dropdown options.</div>
-    </div>
-    <br />
-
-    <label for="url">Website: </label>
-    <textarea name="url" ng-model="breweriesShowCtrl.brewery.url" required="required"></textarea>
-    <div ng-messages="form.url.$error" ng-show="form.url.$touched || form.$submitted">
-        <div ng-message="required">Please provide a website.</div>
-    </div>
-    <br />
-
-    <!-- conditional - only shows if no lat/lng -->
-    <p ng-if="breweriesShowCtrl.brewery.lat === '' || breweriesShowCtrl.brewery.lng === '' ">
-    Help us map out every sour brewery in the US, with these easy steps:
-        <ol ng-if="breweriesShowCtrl.brewery.lat === '' || breweriesShowCtrl.brewery.lng === '' ">
-            <li>Search for your brewery on <a href="https://www.google.com/maps" target="_blank">GoogleMaps</a></li>
-            <li>Right click the pin marker, then "What's here?"</li>
-            <li>Take note of the two funky numbers that appear in the box at the bottom of the screen and input them below</li>
-        </ol>
-    </p>
-
-    <label for="lat">Latitude: </label>
-    <input ng-model="breweriesShowCtrl.brewery.lat"></input>
-    <br />
-    
-    <label for="lat">Longitude: </label>
-    <input ng-model="breweriesShowCtrl.brewery.lng"></input>
-    <br />
-    <br />
-    
-    <div>After updates the information will be:
-        <br />
-        Name: <span ng-bind="breweriesShowCtrl.brewery.name"></span>
-        <br />
-        Address: <span ng-bind="breweriesShowCtrl.brewery.address"></span> 
-        <br />
-        Website: <span ng-bind="breweriesShowCtrl.brewery.url"></span>
-        <br />
-        Latitude: <span ng-bind="breweriesShowCtrl.brewery.lat"></span>
-        <br />
-        Longitude: <span ng-bind="breweriesShowCtrl.brewery.lng"></span> 
-    </div>
-    <br />
-    <br />
-    
-    <input type="submit" name="Edit Brewery">
-  
-</form>
