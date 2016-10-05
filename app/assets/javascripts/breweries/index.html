@@ -18,13 +18,18 @@
         </div>
         <br />
 
-        <p><strong>Want to add a Brewery?</strong></p> 
-        <p>You'll need to 
-        <a href="" ui-sref="home.register"><button type="button" class="btn btn-outline btn-sm">Register</button></a>
-        - or -
-        <a href="" ui-sref="home.login"><button type="button" class="btn btn-outline btn-sm">Log In</button></a>
-        </p>
-        <a ng-controller="HomeController as homeCtrl" ng-show="homeCtrl.signedIn()" href="" ui-sref="home.create">Add a Brewery</a> 
+        <div ng-controller="HomeController as homeCtrl">
+            <span ng-hide="homeCtrl.signedIn()">
+                <p><strong>Want to add a Brewery?</strong></p> 
+                <p>You'll need to 
+                <a href="" ui-sref="home.register"><button type="button" class="btn btn-outline btn-sm">Register</button></a>
+                - or -
+                <a href="" ui-sref="home.login"><button type="button" class="btn btn-outline btn-sm">Log In</button></a>
+                </p>
+            </span>
+
+            <a href="" ng-show="homeCtrl.signedIn()" ui-sref="home.create"><button type="button" class="btn btn-outline btn-sm">Add a Brewery</button></a>
+        </div> 
         <br />
 
         <p><strong>Showing {{ breweriesCtrl.filteredList.length }}  Breweries
