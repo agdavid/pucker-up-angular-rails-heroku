@@ -1,12 +1,27 @@
-<h1>Show a Brewery</h1>
-Name: {{ breweriesShowCtrl.brewery.name }} <br />
-Website: <a href="{{ breweriesShowCtrl.brewery.url }}" target="_blank">{{ breweriesShowCtrl.brewery.url }}</a><br />
-Address: {{ breweriesShowCtrl.brewery.address }} <br />
-State: {{ breweriesShowCtrl.brewery.state.name }} <br />
+<div id="brewery-show" class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1>{{ breweriesShowCtrl.brewery.name }}</h1>
+        </div>
+        <div class="panel-body">
+          <h4>Website: <a href="{{ breweriesShowCtrl.brewery.url }}" target="_blank">{{ breweriesShowCtrl.brewery.url }}</a></h4>
 
-<br />
+          <h5>Address: {{ breweriesShowCtrl.brewery.address }}</h5>
 
+          <h5>State: {{ breweriesShowCtrl.brewery.state.name }}</h5>
+        </div>
+        <div class="panel-footer">
+            <span ng-controller="HomeController as homeCtrl">
+                <span ng-hide="homeCtrl.signedIn() && homeCtrl.user.admin"> To Edit or Delete a Brewery you must be an Admin and <a href="" ui-sref="home.login"><button type="button" class="btn btn-secondary btn-md">Log In</button></a>
+                </span>
 
-<a ng-controller="HomeController as homeCtrl" ng-show="homeCtrl.signedIn() && homeCtrl.user.admin" href="" ui-sref="home.edit({ breweryId: breweriesShowCtrl.brewery.id })">Edit Brewery</a>
-<br />
-<a ng-controller="HomeController as homeCtrl" ng-show="homeCtrl.signedIn() && homeCtrl.user.admin" href="" ng-click="breweriesShowCtrl.destroyBrewery(breweriesShowCtrl.brewery.id )">Delete Brewery</a>
+                <span ng-show="homeCtrl.signedIn() && homeCtrl.user.admin" >
+                    <a href="" ui-sref="home.edit({ breweryId: breweriesShowCtrl.brewery.id })"><button type="button" class="btn btn-primary btn-md">Edit Brewery</button></a>
+                    <a href="" ng-click="breweriesShowCtrl.destroyBrewery(breweriesShowCtrl.brewery.id )"><button type="button" class="btn btn-danger btn-md">Delete Brewery</button></a>
+                </span>
+            </span>     
+        </div> <!-- .panel-footer -->
+      </div> <!-- .panel -->
+  </div>
+</div>
