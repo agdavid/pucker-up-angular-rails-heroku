@@ -1,37 +1,51 @@
-<nav id="main-navbar" class="navbar navbar-default" ng-controller="HomeController as homeCtrl">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">PuckerUp</a>
-        </div>
+<div class="wrapper">
+    <nav id="main-navbar" class="navbar navbar-default" ng-controller="HomeController as homeCtrl">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">PuckerUp</a>
+            </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-              <li><a href="" ui-sref="home">Home</a></li>
-              <li><a href="" ui-sref="home.about">About</a></li>
-              <li><a href="" ui-sref="home.breweries">BreweryList</a></li>
-              <li ng-show="homeCtrl.signedIn()"><a href="" ui-sref="home.create">+ Brewery</a></li>
-              <li><a href="" ui-sref="home.map">BreweryMap</a></li>
-              <!-- will not show when signedIn() is true -->
-              <li ng-hide="homeCtrl.signedIn()"><a href="" ui-sref="home.login">Log In</a></li>
-              <li ng-hide="homeCtrl.signedIn()"><a href="" ui-sref="home.register">Register</a></li>
-              <!-- will only show when signedIn() is true -->
-              <li ng-show="homeCtrl.signedIn()">Signed In as: {{ homeCtrl.user.username }}</li>
-              <li ng-show="homeCtrl.signedIn()"><a href="" ng-click="homeCtrl.logout()">Log Out</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-</nav>
-<div id="main-container" class="container-fluid">
-    <!-- all app views nested from 'home' state -->
-    <ui-view>
-      
-    </ui-view>        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="" ui-sref="home">Home</a></li>
+                  <li><a href="" ui-sref="home.about">About</a></li>
+                  <li><a href="" ui-sref="home.breweries">BreweryList</a></li>
+                  <li ng-show="homeCtrl.signedIn()"><a href="" ui-sref="home.create">+ Brewery</a></li>
+                  <li><a href="" ui-sref="home.map">BreweryMap</a></li>
+                  <!-- will not show when signedIn() is true -->
+                  <li ng-hide="homeCtrl.signedIn()"><a href="" ui-sref="home.login">Log In</a></li>
+                  <li ng-hide="homeCtrl.signedIn()"><a href="" ui-sref="home.register">Register</a></li>
+                  <!-- will only show when signedIn() is true -->
+                  <li ng-show="homeCtrl.signedIn()">Signed In as: {{ homeCtrl.user.username }}</li>
+                  <li ng-show="homeCtrl.signedIn()"><a href="" ng-click="homeCtrl.logout()">Log Out</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div id="main-container" class="container-fluid">
+        <ui-view id="main-ui-view">
+          <!-- all app views nested from 'home' state -->
+        </ui-view>        
+    </div>  
+
 </div>
+
+<div class="push"></div>
+
+<footer class="footer">
+  <div class="container-fluid">
+      <div class="row">
+          Footer
+      </div>
+  </div>
+</footer>
+
