@@ -2,13 +2,14 @@
 
     'use strict';
 
-    function BreweriesController(BreweryFactory, $filter, $state) {
+    function BreweriesController(BreweryFactory, $filter, $state, Auth) {
         var vm = this;
 
         //callable methods on the vm
         vm.getBreweries = getBreweries;
         vm.refilter = refilter;
         vm.createBrewery = createBrewery;
+        vm.signedIn = Auth.isAuthenticated();
 
         //instantiated info
         activate();
@@ -25,8 +26,13 @@
         };
 
         function createBrewery() {
-            return BreweryFactory.createBrewery(vm.brewery)
-                       .then(showBrewery);
+            if (vm.signedIn) {
+                return BreweryFactory.createBrewery(vm.brewery)
+                       .then(showBrewery)
+            } else {
+                alert("You need to be signed in to create a Brewery.");
+                $state.go('home.login')
+            }
         };
 
         // Note: function getBrewery(id) for breweries.show is in breweries.show.controller.js
