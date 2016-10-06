@@ -1,5 +1,6 @@
 body,
 html {
+    margin: 0;
     background: url(<%= asset_path 'background/beer-dark-trimmed.png' %>);
     background-size: cover;
     -webkit-background-size: cover;
@@ -9,7 +10,8 @@ html {
     background-position: center center
 }
 
-html {
+html,
+body {
     height: 100%
 }
 
@@ -35,4 +37,14 @@ div#main-container {
     button {
         font-family: 'Droid Sans', sans-serif;
     }
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -75px;
+}
+
+.footer,
+.push {
+    height: 75px;
 }
