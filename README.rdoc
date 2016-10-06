@@ -1,0 +1,26 @@
+= PuckerUp
+
+== Introduction
+PuckerUp aims to bring you a comprehensive list of sour beer breweries across the USA.  Every sour beer brewery.  Every state.  We want you to know exactly where to find your next sour brew.  We believe in the power of people.  We got the database started, but need you to help us make the ultimate list.  Sign up.  Share your knowledge by adding a sour beer brewery.  Sour beer lovers around the world -- we salute you!
+
+== Usage
+The application can be run locally on your localhost:
+1. Clone it (<tt>git clone https://github.com/agdavid/pucker-up-angular-rails-application</tt>)
+2. Obtain a free GoogleMaps JavaScript API Key (https://cloud.google.com/)
+3. In app/views/layouts/application.html.erb, go to line 14 and replace 'YOUR_KEY_HERE' with your actual API Key
+4. Migrate the database (<tt>rake db:migrate </tt>)
+5. Start your local server (<tt>rails s</tt>)
+
+You may browse the index of breweries and see the map without logging in or signing up.
+
+To add a brewery, you will need to sign up or login. Sign up with an email, username and password.  Only users with 'admin' status may edit or delete breweries.
+
+== Contributing
+1. Fork it (https://github.com/agdavid/pucker-up-angular-rails-application)
+2. Create your feature branch (<tt>git checkout -b my-new-feature</tt>)
+3. Commit your changes (<tt>git commit -am 'Add some feature'</tt>)
+4. Push to the branch (<tt>git push origin my-new-feature</tt>)
+5. Create a new Pull Request
+
+== License
+This project was created as part of the curriculum of Learn.co which is publicly and freely available under {Learn's Educational Content License}[https://learn.co/content-license].
