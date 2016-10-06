@@ -30,7 +30,7 @@
                 return BreweryFactory.createBrewery(vm.brewery)
                        .then(showBrewery)
             } else {
-                alert("You need to be signed in to create a Brewery.");
+                alert("Whoops. You need to be signed in to create a Brewery.");
                 $state.go('home.login')
             }
         };

@@ -2,13 +2,14 @@
 
     'use strict';
 
-    function BreweriesShowController(BreweryFactory, $stateParams, $state) {
+    function BreweriesShowController(BreweryFactory, $stateParams, $state, Auth) {
         var vm = this;
 
         //callable methods on the vm
         vm.getBrewery = getBrewery;
         vm.updateBrewery = updateBrewery;
         vm.destroyBrewery = destroyBrewery;
+        vm.signedIn = Auth.isAuthenticated();
 
         //instantiated info
         activate();
@@ -24,8 +25,13 @@
         };
 
         function updateBrewery() {
-            return BreweryFactory.updateBrewery(vm.brewery)
+            if (vm.signedIn) {
+                return BreweryFactory.updateBrewery(vm.brewery)
                        .then(showBrewery);
+            } else {
+                alert("Whoops. You need to sign in and be an admin to edit a Brewery.");
+                $state.go('home.login')
+            }
         };
 
         function destroyBrewery(id) {
