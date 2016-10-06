@@ -1,22 +1,25 @@
 <div class="row form">
     <div class="col-md-6 col-md-offset-3">
-        <div class="panel pane-default">
-            <h1>Log In</h1>
-
-            <form ng-submit="authCtrl.login()">
-                  <div class="form-group">
-                      Email: 
-                      <input class="form-control" type="email" placeholder="Email" ng-model="authCtrl.user.email">
-                  </div>
-                  <br />
-                  <div class="form-group">
-                      Password:
-                      <input class="form-control" type="password" placeholder="Password" ng-model="authCtrl.user.password">
-                  </div>
-                  <br />
-                  <input class="btn btn-secondary" type="submit" value="Log In">
-                  <br />
-            </form>
-        </div>
-    </div>
-</div>
+        <div class="panel panel-default">
+            <div class="panel-header">
+                  <h1>Log In</h1>
+            </div>
+            <div class="panel-body">
+                <form ng-submit="authCtrl.login()">
+                      <div class="form-group">
+                          Email: 
+                          <input class="form-control" type="email" placeholder="Email" ng-model="authCtrl.user.email">
+                      </div>
+                      <br />
+                      <div class="form-group">
+                          Password:
+                          <input class="form-control" type="password" placeholder="Password" ng-model="authCtrl.user.password">
+                      </div>
+                      <br />
+                      <input class="btn btn-secondary" type="submit" value="Log In">
+                      <br />
+                </form>
+            </div>
+        </div><!-- /.panel -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
