@@ -1,14 +1,16 @@
 body,
 html {
-    width: 100%;
-    height: 100%;
-    background-image: url(<%= asset_path 'background/beer-medium-trimmed.png' %>);
+    background: url(<%= asset_path 'background/beer-dark-trimmed.png' %>);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-repeat: no-repeat;
     background-position: center center
+}
+
+html {
+    height: 100%
 }
 
 div#main-container {
@@ -18,11 +20,11 @@ div#main-container {
     h4,
     h5,
     h6 {
-        font-family: 'Coustard', serif;
-        font-weight: 400
+        font-family: 'Droid Sans', sans-serif;
+        font-weight: 700
     }
     p {
-        font-family: 'Arvo', serif;
+        font-family: 'Droid Sans', sans-serif;
     }
     div#definition {
         text-align: center;
@@ -31,6 +33,6 @@ div#main-container {
         }
     }
     button {
-        font-family: 'Coustard', serif
+        font-family: 'Droid Sans', sans-serif;
     }
 }
