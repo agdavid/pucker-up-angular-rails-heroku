@@ -28,25 +28,23 @@ div#main-container {
     p {
         font-family: 'Droid Sans', sans-serif;
     }
-    div#definition {
-        text-align: center;
-        p {
-            font-size: 1.75em;
-        }
-    }
     button {
         font-family: 'Droid Sans', sans-serif;
     }
 }
 
-ui-view#main-ui-view {
+div#definition {
     background: url(<%= asset_path 'background/beer-dark-trimmed.png' %>);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center
+    background-position: center center;
+    text-align: center;
+    p {
+        font-size: 1.75em;
+    }
 }
 
 .wrapper {
