@@ -80,6 +80,8 @@
 
   };
 
+  BreweryFactory.$inject['$http'];
+
   angular
       .module('app')
       .factory('BreweryFactory', BreweryFactory);
