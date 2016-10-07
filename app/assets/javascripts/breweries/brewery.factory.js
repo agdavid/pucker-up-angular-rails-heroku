@@ -80,7 +80,7 @@
 
   };
 
-  BreweryFactory.$inject['$http'];
+  BreweryFactory.$inject = ['$http'];
 
   angular
       .module('app')

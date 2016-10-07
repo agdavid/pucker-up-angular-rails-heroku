@@ -28,7 +28,7 @@
 
     };
 
-    StatesController.$inject['StateFactory'];
+    StatesController.$inject = ['StateFactory'];
 
     angular
       .module('app')

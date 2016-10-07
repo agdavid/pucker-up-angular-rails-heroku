@@ -63,7 +63,7 @@
 
     };
 
-    BreweriesController.$inject['BreweryFactory', '$filter', '$state', 'Auth'];
+    BreweriesController.$inject = ['BreweryFactory', '$filter', '$state', 'Auth'];
 
     angular
         .module('app')

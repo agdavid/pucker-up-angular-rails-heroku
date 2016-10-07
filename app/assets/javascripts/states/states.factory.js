@@ -25,7 +25,7 @@
 
     };
 
-    StateFactory.$inject['$http'];
+    StateFactory.$inject =['$http'];
 
   angular
       .module('app')

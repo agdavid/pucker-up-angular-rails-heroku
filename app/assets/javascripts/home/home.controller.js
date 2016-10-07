@@ -42,7 +42,7 @@
 
   };
 
-  HomeController.$inject['$scope', 'Auth', '$state'];
+  HomeController.$inject = ['$scope', 'Auth', '$state'];
 
   angular
       .module('app')
