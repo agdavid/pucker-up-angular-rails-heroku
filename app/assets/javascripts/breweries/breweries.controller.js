@@ -63,6 +63,8 @@
 
     };
 
+    BreweriesController.$inject['BreweryFactory', '$filter', '$state', 'Auth'];
+
     angular
         .module('app')
         .controller('BreweriesController', BreweriesController);
