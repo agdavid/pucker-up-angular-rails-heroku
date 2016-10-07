@@ -12,10 +12,20 @@
           <h5>State: {{ breweriesShowCtrl.brewery.state.name }}</h5>
         </div>
         <div class="panel-footer">
+            Got another great sour brewery in mind? <a href="" ui-sref="home.create"><button type="button" class="btn btn-secondary btn-md">Add Brewery</button></a>
+            <br />
+
             <span ng-controller="HomeController as homeCtrl">
-                <span ng-hide="homeCtrl.signedIn() && homeCtrl.user.admin"> To Edit or Delete a Brewery you must be an Admin and <a href="" ui-sref="home.login"><button type="button" class="btn btn-secondary btn-md">Log In</button></a>
+                
+                <!-- not signed in -->
+                <span ng-show="!homeCtrl.signedIn()"> To Edit or Delete a Brewery you must be an Admin and <a href="" ui-sref="home.login">Log In</a>
                 </span>
 
+                <!-- signed in && not admin-->
+                <span ng-show="homeCtrl.signedIn() && !homeCtrl.user.admin">To Edit or Delete a Brewery you must be an Admin
+                </span>
+
+                <!-- signed in && admin -->
                 <span ng-show="homeCtrl.signedIn() && homeCtrl.user.admin" >
                     <a href="" ui-sref="home.edit({ breweryId: breweriesShowCtrl.brewery.id })"><button type="button" class="btn btn-primary btn-md">Edit Brewery</button></a>
                     <a href="" ng-click="breweriesShowCtrl.destroyBrewery(breweriesShowCtrl.brewery.id )"><button type="button" class="btn btn-danger btn-md">Delete Brewery</button></a>
