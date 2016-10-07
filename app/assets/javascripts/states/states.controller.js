@@ -28,6 +28,8 @@
 
     };
 
+    StatesController.$inject['StateFactory'];
+
     angular
       .module('app')
       .controller('StatesController', StatesController);
