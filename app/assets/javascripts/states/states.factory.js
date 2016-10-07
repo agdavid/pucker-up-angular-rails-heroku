@@ -25,6 +25,8 @@
 
     };
 
+    StateFactory.$inject['$http'];
+
   angular
       .module('app')
       .factory('StateFactory', StateFactory);
