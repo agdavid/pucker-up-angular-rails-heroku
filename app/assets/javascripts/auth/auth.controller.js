@@ -27,6 +27,8 @@
 
     };
 
+    AuthController.$inject = ['$scope', '$state', 'Auth'];
+
     angular
         .module('app')
         .controller('AuthController', AuthController);
