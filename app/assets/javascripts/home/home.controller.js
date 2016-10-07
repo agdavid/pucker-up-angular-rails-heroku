@@ -1,7 +1,3 @@
-(function(){
-
-  'use strict';
-
   function HomeController($scope, Auth, $state) {
 
       var vm = this;
@@ -47,5 +43,3 @@
   angular
       .module('app')
       .controller('HomeController', HomeController);
-
-}());

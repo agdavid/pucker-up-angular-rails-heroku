@@ -1,7 +1,3 @@
-(function(){
-
-    'use strict';
-
     function StateFactory($http) {
 
         return {
@@ -30,5 +26,3 @@
   angular
       .module('app')
       .factory('StateFactory', StateFactory);
-
-}());

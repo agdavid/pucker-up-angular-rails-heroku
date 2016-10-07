@@ -1,7 +1,3 @@
-(function(){
-
-  'use strict';
-
   function BreweryFactory($http) {
       
       return {
@@ -85,5 +81,3 @@
   angular
       .module('app')
       .factory('BreweryFactory', BreweryFactory);
-
-}());

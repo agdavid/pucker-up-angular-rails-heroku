@@ -1,6 +1,3 @@
-(function(){
-    'use strict';
-
     function MapController() {
         
         activate();
@@ -87,4 +84,3 @@
     angular
         .module('app')
         .controller('MapController', MapController);    
-}());

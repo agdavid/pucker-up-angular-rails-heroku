@@ -1,7 +1,3 @@
-(function(){
-
-    'use strict';
-
     function BreweriesShowController(BreweryFactory, $stateParams, $state, Auth) {
         var vm = this;
 
@@ -57,4 +53,3 @@
     angular
         .module('app')
         .controller('BreweriesShowController', BreweriesShowController);
-}());

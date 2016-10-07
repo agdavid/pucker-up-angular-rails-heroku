@@ -1,7 +1,3 @@
-(function(){
-
-    'use strict';
-
     function StatesController(StateFactory) {
 
         var vm = this;
@@ -33,6 +29,3 @@
     angular
       .module('app')
       .controller('StatesController', StatesController);
-
-}());
-
