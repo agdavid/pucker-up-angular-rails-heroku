@@ -6,6 +6,7 @@
         vm.updateBrewery = updateBrewery;
         vm.destroyBrewery = destroyBrewery;
         vm.signedIn = Auth.isAuthenticated();
+        vm.getCurrentUser = getCurrentUser;
 
         //instantiated info
         activate();
@@ -13,7 +14,18 @@
         //defined methods on the vm        
         function activate() {
           getBrewery($stateParams.breweryId);
+          getCurrentUser();
         };
+
+        function getCurrentUser() {
+            return Auth.currentUser()
+                       .then(setCurrentUser);
+        }
+
+        function setCurrentUser(user) {
+            console.log(user);
+            return vm.user = user;
+        }
 
         function getBrewery(id) {
             return BreweryFactory.getBrewery(id)
@@ -21,7 +33,7 @@
         };
 
         function updateBrewery() {
-            if (vm.signedIn) {
+            if (vm.signedIn && vm.user.admin) {
                 return BreweryFactory.updateBrewery(vm.brewery)
                        .then(showBrewery);
             } else {
