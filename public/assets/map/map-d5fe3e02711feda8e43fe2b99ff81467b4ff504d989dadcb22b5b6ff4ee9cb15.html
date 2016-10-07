@@ -1,0 +1,34 @@
+<div id="brewery-map" class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h1>BreweryMap</h1>
+        <hr>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>Welcome to our BreweryMap a visualization of all the sour beer breweries in our collection for which we have coordinates.</p>
+                <ul>
+                  <li>Hover over a marker for more detail</li>
+                  <li>Click a marker to visit the Brewery homepage</li>
+                </ul>        
+            </div><!-- /.panel-body -->
+            <div class="panel-footer">
+                <p><strong>Don't see an awesome sour beer Brewery you know about?</strong></p>  
+                <p>Go ahead and add it to the PuckerUp database:</p>
+                <div ng-controller="HomeController as homeCtrl">
+                    <span ng-hide="homeCtrl.signedIn()"> 
+                        <p>You'll need to 
+                        <a href="" ui-sref="home.register"><button type="button" class="btn btn-secondary btn-lg">Register</button></a>
+                        - or -
+                        <a href="" ui-sref="home.login"><button type="button" class="btn btn-secondary btn-lg">Log In</button></a> to add a Brewery.
+                        </p>
+                    </span>
+
+                    <a href="" ng-show="homeCtrl.signedIn()" ui-sref="home.create"><button type="button" class="btn btn-secondary btn-lg">Add a Brewery</button></a>
+                </div>         
+            </div><!-- /.panel-footer -->
+        </div><!-- /.panel -->
+        <div id="map" class="center">
+         <!-- GoogleMaps JavaScript API to insert map here -->
+        </div>
+        <br />
+    </div>  
+</div>

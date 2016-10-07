@@ -1,0 +1,72 @@
+<div class="row form">
+    <div class="col-md-10 col-md-offset-1">
+        
+        <div class="panel panel-default">
+            <div class="panel-header">
+                <h1>Let's Make a Brewery</h1>        
+            </div> <!-- /.panel-header -->
+            <div class="panel-body">
+                <form name="form" ng-submit="breweriesCtrl.createBrewery()">
+            
+                    <div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.address.$pristine }">
+                        <label for="name">Name: </label>
+                        <input class="form-control" type="text" name="name" ng-model="breweriesCtrl.brewery.name" minlength="3" required="required"></input>
+                        <div ng-messages="form.name.$error" ng-show="form.name.$touched || form.$submitted">
+                            <div ng-message="required">Please provide a name.</div>
+                            <div ng-message="minlength">Name must be at least 3 letters long.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <textarea class="form-control" ng-model="breweriesCtrl.brewery.address"></textarea>
+                    </div>
+                    
+                    <div class="form-group" ng-class="{ 'has-error' : form.state.$invalid && !form.state.$pristine }">
+                        <label for="state">State: </label>    
+                            <span ng-controller="StatesController as statesCtrl">
+
+                                <select class="form-control" name="state" ng-model="breweriesCtrl.brewery.state_id" ng-options="state.id*1 as state.name for state in statesCtrl.states" required="required">
+                                    <option value="">-Select A State-</option>
+                                </select>
+
+                            </span>
+                            <div ng-messages="form.state.$error" ng-show="form.state.$touched || form.$submitted">
+                                <div ng-message="required">Please select a state from the dropdown options.</div>
+                            </div>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : form.url.$invalid && !form.url.$pristine }">
+                            <label for="url">Website: </label>
+                                        <textarea class="form-control" type="text" name="url" ng-model="breweriesCtrl.brewery.url" required="required"></textarea>
+                            <div ng-messages="form.url.$error" ng-show="form.url.$touched || form.$submitted">
+                                <div ng-message="required">Please provide a website.</div>
+                            </div>
+                    </div>
+
+                    <p>Help us map out every sour beer brewery in the US, with these easy steps:
+                        <ol>
+                            <li>Search for your brewery on <a href="https://www.google.com/maps" target="_blank">GoogleMaps</a></li>
+                            <li>Right click the pin marker, then "What's here?"</li>
+                            <li>Take note of the two funky numbers that appear in the box at the bottom of the screen and input them below</li>
+                        </ol>
+                    </p>
+                 
+                    <div class="form-group">    
+                        <label for="lat">Latitude: </label>
+                        <input class="form-control" ng-model="breweriesCtrl.brewery.lat"></input>
+                        <br />  
+
+                        <label for="lat">Longitude: </label>
+                        <input class="form-control" ng-model="breweriesCtrl.brewery.lng"></input>
+                    </div>
+
+                    <input class="btn btn-secondary btn-lg" type="submit" value="Add Brewery">
+
+                </form>    
+            </div> <!-- /.panel-body -->
+        </div><!-- /.panel -->
+
+    </div><!-- /.col -->
+</div><!-- /.row-->
+

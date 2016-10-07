@@ -1,0 +1,74 @@
+<div class="wrapper">
+    <nav id="main-navbar" class="navbar navbar-default" ng-controller="HomeController as homeCtrl">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">PuckerUp</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="" ui-sref="home">Home</a></li>
+                  <li><a href="" ui-sref="home.about">About</a></li>
+                  <li><a href="" ui-sref="home.breweries">BreweryList</a></li>
+                  <li ng-show="homeCtrl.signedIn()"><a href="" ui-sref="home.create">Add Brewery</a></li>
+                  <li><a href="" ui-sref="home.map">BreweryMap</a></li>
+                  <!-- will not show when signedIn() is true -->
+                  <li ng-hide="homeCtrl.signedIn()"><a href="" ui-sref="home.login">Log In</a></li>
+                  <li ng-hide="homeCtrl.signedIn()"><a href="" ui-sref="home.register">Register</a></li>
+                  <!-- will only show when signedIn() is true -->
+                  <li ng-show="homeCtrl.signedIn()"><span class="user">Signed in <i class="fa fa-user" aria-hidden="true"></i> : {{ homeCtrl.user.username }}</span></li>
+                  <li ng-show="homeCtrl.signedIn()"><a href="" ng-click="homeCtrl.logout()">Log Out</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="main-container" class="container-fluid">
+        <ui-view id="main-ui-view">
+          <!-- all app views nested from 'home' state -->
+            <div id="definition">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1><i>Defn.</i> PuckerUp</h1>
+                    <h3>noun | puck·er up | \ˈpə-kər əp\</h3>
+                    <br />
+                    <p>The ultimate list of sour beer breweries in the USA. Made for beer lovers, by beer lovers.</p>
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-6">
+                  <p>Find your next muse in our user-sourced BreweryList:</p>
+                  <a href="" ui-sref="home.breweries"><button type="button" class="btn btn-outline btn-lg">BreweryList</button></a>
+                </div>
+                <div class="col-md-6">
+                  <p>Brew-through the USA on a visual roadtrip using our BreweryMap:</p>
+                  <a href="" ui-sref="home.map"><button type="button" class="btn btn-outline btn-lg">BreweryMap</button></a>
+                </div>
+              </div>
+            </div> <!-- /#definition -->
+        </ui-view>        
+    </div>
+    <div class="push"></div>  
+</div><!-- /.wrapper -->
+
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+              <span class="copyright">Copyright &copy; <a href="http://antoniodavid.me/" target="_blank">Antonio David</a> 2016</span>
+          </div>
+          <div class="col-md-6">
+          <span>Powered by <a href="https://angularjs.org/" target="_blank">Angular</a>, <a href="http://rubyonrails.org/" target="_blank">Rails</a>, <a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a>, and education from <a href="https://flatironschool.com/" target="_blank">The Flatiron School</a></span>
+          </div>
+        </div>
+    </div>
+</footer>  

@@ -1,0 +1,58 @@
+<div id="breweries-index" class="row full">
+    <div class="col-md-10 col-md-offset-1">
+        <h1>We have the Breweries!</h1>
+        <hr>
+        <!-- General Search Function -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="search">Search: </label>
+                    <input class="form-control" ng-model="breweriesCtrl.searchTerm" ng-change="breweriesCtrl.refilter()" placeholder="Search by name or state (e.g., Orpheus Brewing or Georgia)">  
+                </div>
+                <br />
+
+                <!-- Filter by State Function -->
+                <div class="form-group">
+                    <label for="filter">Filter by State: </label>
+                    <select class="form-control" ng-controller="StatesController as statesCtrl" ng-model="breweriesCtrl.searchState" ng-change="breweriesCtrl.refilter()" ng-options="state.name as state.name for state in statesCtrl.states track by state.id">
+                        <option value="">-Select State-</option>
+                    </select>  
+                </div>
+                <br />
+
+                <div ng-controller="HomeController as homeCtrl">
+                    <span ng-hide="homeCtrl.signedIn()">
+                        <p><strong>Want to add a Brewery?</strong></p> 
+                        <p>You'll need to 
+                        <a href="" ui-sref="home.register"><button type="button" class="btn btn-outline btn-sm">Register</button></a>
+                        - or -
+                        <a href="" ui-sref="home.login"><button type="button" class="btn btn-outline btn-sm">Log In</button></a>
+                        </p>
+                    </span>
+
+                    <a href="" ng-show="homeCtrl.signedIn()" ui-sref="home.create"><button type="button" class="btn btn-outline btn-sm">Add a Brewery</button></a>
+                </div>    
+            </div> <!-- /.panel-body-->     
+            <div class="panel-footer">
+                <p><strong>Showing {{ breweriesCtrl.filteredList.length }}  Breweries <span ng-if="breweriesCtrl.searchTerm"> for the search '{{ breweriesCtrl.searchTerm }}'</span> <span ng-if="breweriesCtrl.searchState"> in the state of {{ breweriesCtrl.searchState }}</span>
+        </strong></p>
+            </div><!-- /.panel-footer -->
+        </div><!-- /.panel -->
+        <hr>
+
+        <table class="table table-stripe">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id">
+                   <td><a class="brewery-link" href="" ui-sref="home.show({ breweryId: brewery.id })">{{ brewery.name }}</a></td>
+                   <td ng-bind="brewery.state_name"></td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+</div>
