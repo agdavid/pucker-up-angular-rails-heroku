@@ -1,6 +1,6 @@
   angular
       .module('app')
-      .config(function($stateProvider, $urlRouterProvider){
+      .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
           $stateProvider
           //landing page
               .state('home', {
@@ -63,4 +63,4 @@
               });
           $urlRouterProvider
               .otherwise('/');
-    });
+    }]);

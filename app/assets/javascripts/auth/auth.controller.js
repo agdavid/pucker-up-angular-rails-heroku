@@ -1,4 +1,4 @@
-    function AuthController($scope, $state, Auth) {
+    function AuthController($state, Auth) {
 
         var vm = this;
 
@@ -23,7 +23,7 @@
 
     };
 
-    AuthController.$inject = ['$scope', '$state', 'Auth'];
+    AuthController.$inject = ['$state', 'Auth'];
 
     angular
         .module('app')
