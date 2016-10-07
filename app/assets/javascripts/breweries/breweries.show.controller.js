@@ -52,6 +52,8 @@
         };
     };
 
+    BreweriesShowController.$inject['BreweryFactory', '$stateParams', '$state', 'Auth'];
+
     angular
         .module('app')
         .controller('BreweriesShowController', BreweriesShowController);
