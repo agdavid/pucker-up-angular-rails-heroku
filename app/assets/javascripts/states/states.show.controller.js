@@ -3,18 +3,20 @@
     'use strict';
 
     function StatesShowController($stateParams, BreweryFactory, $filter) {
-
         var vm = this;
 
+        //instantiated info
         activate();
 
+        //defined methods on the vm
         function activate() {
-            setStateName($stateParams);
+            stateName($stateParams);
             getBreweries();
             
         };
 
-        function setStateName($stateParams) {
+        function stateName($stateParams) {
+            //this function covers the case of a user directly typing '/states/colorado' rather than '/states/Colorado'
             var stateLettersArray = $stateParams.stateName.split('');
             var upperCaseLetter = stateLettersArray[0].toUpperCase();
             stateLettersArray[0] = upperCaseLetter;
@@ -22,7 +24,7 @@
         };
 
         function getBreweries() {
-            BreweryFactory.getBreweries()
+            return BreweryFactory.getBreweries()
                           .then(setBreweries);
         };
 
