@@ -35,6 +35,8 @@
 
     };
 
+    StatesShowController.$inject = ['$stateParams', 'BreweryFactory', '$filter'];
+
     angular
         .module('app')
         .controller('StatesShowController', StatesShowController);
