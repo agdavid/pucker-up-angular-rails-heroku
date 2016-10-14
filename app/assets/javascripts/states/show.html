@@ -1,6 +1,48 @@
-<h1>Welcome to the {{ statesShowCtrl.stateName}} Page</h1>
+<div id="state-show" class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h1>Breweries in {{ statesShowCtrl.stateName }}</h1>
+        <div class="panel panel-default">
+            </div>
+            <div class="panel-body">
+                <div ng-controller="HomeController as homeCtrl">
+                    <span ng-hide="homeCtrl.signedIn()">
+                        <p><strong>Want to add a Brewery?</strong></p> 
+                        <p>You'll need to 
+                        <a href="" ui-sref="home.register"><button type="button" class="btn btn-outline btn-sm">Register</button></a>
+                        - or -
+                        <a href="" ui-sref="home.login"><button type="button" class="btn btn-outline btn-sm">Log In</button></a>
+                        </p>
+                    </span>
 
-Breweries as follows:
-<ul>
-  <li ng-repeat="brewery in statesShowCtrl.filteredList"> {{ brewery.name }}</li>
-</ul>
+                    <a href="" ng-show="homeCtrl.signedIn()" ui-sref="home.create"><button type="button" class="btn btn-outline btn-sm">Add a Brewery</button></a>
+                </div> <!-- /ng-controller -->
+                <br />
+                
+                  <span ng-show="statesShowCtrl.filteredList.length > 0">
+                    <table class="table table-stripe">
+                        <thead>
+                           <tr>
+                               <th>Name</th>
+                               <th>Website</th>
+                           </tr>  
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="brewery in statesShowCtrl.filteredList">
+                                <td><a href="" ui-sref="home.show({ breweryId: brewery.id })">{{ brewery.name }}</a></td>
+                                
+                                <td><a href="{{ brewery.url }}" target="_blank">{{ brewery.url }}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </span> <!-- /ng-show-->
+                <span ng-show="statesShowCtrl.filteredList.length === 0">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>There are no breweries listed in {{ statesShowCtrl.stateName }}</p>
+                        </div>
+                    </div> 
+                </span><!-- /ng-show-->
+            </div>
+        </div><!-- /.panel -->        
+    </div> <!-- /.col -->
+</div>
