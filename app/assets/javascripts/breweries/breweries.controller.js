@@ -6,6 +6,7 @@
         vm.refilter = refilter;
         vm.createBrewery = createBrewery;
         vm.signedIn = Auth.isAuthenticated();
+        vm.resetBreweries = resetBreweries;
 
         //instantiated info
         activate();
@@ -55,6 +56,10 @@
 
         function showBrewery(data) {
             $state.go('home.show', { breweryId: data.id });
+        };
+
+        function resetBreweries() {
+            return vm.filteredList = vm.breweries;
         };
 
     };
