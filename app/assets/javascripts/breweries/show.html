@@ -12,10 +12,16 @@
           <h5>State: {{ breweriesShowCtrl.brewery.state.name }}</h5>
         </div>
         <div class="panel-footer">
-            Got another great sour brewery in mind? <a href="" ui-sref="home.create"><button type="button" class="btn btn-secondary btn-md">Add Brewery</button></a>
-            <br />
-
             <span ng-controller="HomeController as homeCtrl">
+                <!-- add a brewery conditionals -->
+                Got another great sour brewery in mind? 
+                <span>
+                    <a href="" ng-show="homeCtrl.signedIn()" ui-sref="home.create"><button type="button" class="btn btn-secondary btn-md">Add Brewery</button></a>
+                </span>
+                <span ng-show="!homeCtrl.signedIn()">
+                    To add a brewery <a href="" ui-sref="home.login">Log In</a>
+                </span>
+                <br />
                 
                 <!-- not signed in -->
                 <span ng-show="!homeCtrl.signedIn()"> To Edit or Delete a Brewery you must be an Admin and <a href="" ui-sref="home.login">Log In</a>
