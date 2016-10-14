@@ -50,7 +50,7 @@
             <tbody>
                <tr ng-repeat="brewery in breweriesCtrl.filteredList track by brewery.id">
                    <td><a class="brewery-link" href="" ui-sref="home.show({ breweryId: brewery.id })">{{ brewery.name }}</a></td>
-                   <td ng-bind="brewery.state_name"></td>
+                   <td><a href="" ui-sref="home.state({ state: brewery.state.name })">{{ brewery.state.name }}</a></td>
                 </tr>
             </tbody>
         </table> 

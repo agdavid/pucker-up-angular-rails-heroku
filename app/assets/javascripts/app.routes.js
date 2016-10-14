@@ -60,6 +60,12 @@
                 url: 'breweries/show/:breweryId',
                 templateUrl: 'breweries/show.html',
                 controller: 'BreweriesShowController as breweriesShowCtrl'
+              })
+          //states pages
+              .state('home.state', {
+                url: 'states/:stateName',
+                templateUrl: 'states/show.html',
+                controller: 'StatesShowController as statesShowCtrl'
               });
           $urlRouterProvider
               .otherwise('/');
