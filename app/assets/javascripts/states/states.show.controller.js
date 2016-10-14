@@ -27,7 +27,8 @@
         };
 
         function setBreweries(data) {
-            return vm.breweries = data;
+            vm.breweries = data;
+            return vm.filteredList = $filter('filter')(vm.breweries, vm.stateName)
         };
 
     };
