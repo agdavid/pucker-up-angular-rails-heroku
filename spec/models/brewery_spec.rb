@@ -4,8 +4,8 @@ describe Brewery do
     before do 
         Brewery.destroy_all
         State.destroy_all
-        @state = FactoryGirl.create(:state)
-        @brewery = FactoryGirl.create(:brewery)
+        @state = create(:state)
+        @brewery = build(:brewery)
     end
 
     it "has a valid factory" do 

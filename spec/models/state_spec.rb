@@ -3,7 +3,7 @@ require 'rails_helper'
 describe State do
   before do 
     State.destroy_all
-    @state = FactoryGirl.build(:state)
+    @state = build(:state)
   end
 
 
