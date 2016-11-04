@@ -4,22 +4,15 @@ describe Brewery do
     before do 
         Brewery.destroy_all
         State.destroy_all
-        @state = State.create(
-          name: "Georgia",
-          abbreviation: "GA"
-          )
-        @brewery = Brewery.create(
-          name: "Orpheus Brewing Co",
-          state_id: @state.id,
-          address: "12345 Beer Lane",
-          url: "www.example.com",
-          lat: "34.5",
-          lng: "54.3"
-          )
+        @state = FactoryGirl.create(:state)
+        @brewery = FactoryGirl.create(:brewery)
     end
 
-    it "is a valid brewery" do 
+    it "has a valid factory" do 
         expect(@brewery).to be_valid
+    end
+    it "is a valid brewery" do 
+        expect(@brewery).to be_an_instance_of(Brewery)
     end
     it "has a name" do 
         expect(@brewery.name).to eq("Orpheus Brewing Co")
@@ -37,6 +30,7 @@ describe Brewery do
         expect(@brewery.lng).to eq("54.3")
     end
     it "properly uses #set_state_name" do 
+        @brewery.state = @state
         @brewery.set_state_name(@brewery.state_id)
         expect(@brewery.state_name).to eq("Georgia")
     end
