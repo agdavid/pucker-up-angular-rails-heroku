@@ -19,7 +19,14 @@ describe StatesController do
           expect(assigns(:states).count).to eq(2)
           expect(assigns(:states)).to match_array([@georgia, @oregon])
       end
-      it "returns all states as JSON" #TO DO
+      it "returns all states as JSON" do 
+          get :index
+          expect(response).to have_http_status(:success)
+          json = JSON.parse(response.body)
+          expect(json.size).to eq(2)
+          expect(json.first['name']).to eq("Georgia")
+          expect(json.last['name']).to eq("Oregon")
+      end
   end
   
   describe 'GET #show' do 
@@ -27,7 +34,7 @@ describe StatesController do
           get :show, id: @georgia
           expect(assigns(:state)).to eq(@georgia)
       end
-      it "returns a state as JSON" do 
+      it "returns a state request as JSON" do 
           get :show, id: @georgia
           expect(response).to have_http_status(:success)
           json = JSON.parse(response.body)
