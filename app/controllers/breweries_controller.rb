@@ -4,8 +4,8 @@ class BreweriesController < ApplicationController
 
   def index
     # get /breweries will go to breweries#index and return all breweries
-    breweries = Brewery.all
-    render json: breweries 
+    @breweries = Brewery.all
+    render json: @breweries 
   end
 
   def create
@@ -21,19 +21,19 @@ class BreweriesController < ApplicationController
 
   def show
     # get /breweries/:id will go to breweries#show and return a brewery
-    brewery = Brewery.find(params[:id])
-    render json: brewery
+    @brewery = Brewery.find(params[:id])
+    render json: @brewery
   end
 
   def update
     # patch /breweries/:id will go to breweries#update and edit a brewery
-    brewery = Brewery.find(params[:id])
+    @brewery = Brewery.find(params[:id])
     # Pundit authorization checking user.admin == true
-    authorize brewery 
-    if brewery.update(brewery_params)
-      render json: brewery 
+    authorize @brewery 
+    if @brewery.update(brewery_params)
+      render json: @brewery 
     else
-      render json: { errors: brewery.errors.full_messages }, status: :unprocessable_entity 
+      render json: { errors: @brewery.errors.full_messages }, status: :unprocessable_entity 
     end
   end
 
