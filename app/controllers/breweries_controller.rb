@@ -39,10 +39,10 @@ class BreweriesController < ApplicationController
 
   def destroy
     # post with method of delete /breweries/:id will go to breweries#destroy and delete a brewery
-    brewery = Brewery.find(params[:id])
+    @brewery = Brewery.find(params[:id])
     # Pundit authorization checking user.admin == true
-    authorize brewery
-    brewery.destroy
+    authorize @brewery
+    @brewery.destroy
   end
 
   private
